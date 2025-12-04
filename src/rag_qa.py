@@ -107,7 +107,6 @@ def call_llm(prompt: str) -> str:
         clean_up_tokenization_spaces=True,
     ).strip()
 
-    # 如果切出来是空，就解码整段看看
     if not answer:
         full_text = tokenizer.decode(
             output_ids[0],
@@ -183,26 +182,18 @@ def build_prompt(query: str, contexts):
 
     prompt = textwrap.dedent(
         f"""
-        You are an agricultural assistant.
-        Use ONLY the information from the CONTEXTS below to answer the farmer's question.
-        Do not rely on your own general knowledge if it is not supported by the contexts.
+            CONTEXTS:
+            {context_str}
 
-        First, give 1–2 sentences of general explanation.
-        Then, if appropriate, provide a numbered list of concrete, practical actions or recommendations.
+            QUESTION:
+            {query}
 
-        If the answer is not clearly contained in the contexts, explicitly say that you are not sure and avoid inventing facts.
-
-        ==== CONTEXTS ====
-        {context_str}
-
-        ==== QUESTION ====
-        {query}
-
-        ==== INSTRUCTIONS ====
-        - Be clear, practical and concise.
-        - When possible, synthesize information from multiple contexts.
-        - Do NOT add information that is not supported by the contexts.
-        """
+            ANSWER INSTRUCTIONS:
+            - Use ONLY the information from the contexts above.
+            - First, give 1–2 sentences of general explanation.
+            - Then, provide a numbered list of concrete, practical actions.
+            - If the contexts do not clearly contain the answer, say you are not sure.
+            """
     ).strip()
 
     return prompt
