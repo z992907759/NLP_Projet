@@ -42,7 +42,6 @@ def call_llm_raw(text: str) -> str:
             pad_token_id=tokenizer.eos_token_id,
         )
 
-    # Remove original input tokens and keep only newly generated tokens
     generated_ids = output_ids[0][inputs["input_ids"].shape[1]:]
 
     answer = tokenizer.decode(
@@ -67,7 +66,6 @@ def main():
             print("Bye ~")
             break
 
-        # Directly send the user's question to the model without any prompt
         answer = call_llm_raw(query)
 
         print("\n===== Model answer (raw) =====")
