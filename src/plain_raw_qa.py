@@ -23,9 +23,6 @@ model = AutoModelForCausalLM.from_pretrained(
 
 
 def call_llm_raw(text: str) -> str:
-    """
-    Pure raw version: no prompt added, directly send user input to the model.
-    """
     inputs = tokenizer(
         text,
         return_tensors="pt",
