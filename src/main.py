@@ -30,7 +30,6 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto",  # Automatically select CPU / GPU / MPS
 )
 
-# 清理生成配置里的采样参数，避免 do_sample=False 搭配 temperature/top_p 的多余警告
 if hasattr(model, "generation_config"):
     try:
         model.generation_config.do_sample = False
@@ -41,15 +40,16 @@ if hasattr(model, "generation_config"):
 
 
 def call_llm(prompt: str) -> str:
-    # 构造对话消息：一个 system + 一个 user
+    # 构造对话消息：system + user
     messages = [
         {
             "role": "system",
             "content": (
-                "You are an agricultural assistant. "
+                "You are a helpful and precise research assistant. "
                 "You must follow the instructions in the user's message and answer the question "
-                "using ONLY the information from the provided CONTEXT when possible. "
-                "If the context does not contain the answer, say that you are not sure."
+                "using ONLY the information from the provided CONTEXTS when possible. "
+                "If the contexts do not contain the answer, or the information is incomplete or ambiguous, "
+                "you must say that you are not sure instead of guessing."
             ),
         },
         {
@@ -68,7 +68,7 @@ def call_llm(prompt: str) -> str:
     else:
         # 否则手动拼一个简单的 chat 文本
         chat_text = (
-            "System: You are an agricultural assistant.\n"
+            "System: You are a helpful and precise research assistant.\n"
             "User:\n"
             f"{prompt}\n\n"
             "Assistant:"
@@ -93,7 +93,7 @@ def call_llm(prompt: str) -> str:
     with torch.no_grad():
         output_ids = model.generate(
             **model_inputs,
-            max_new_tokens=256,
+            max_new_tokens=512,
             do_sample=False,
             pad_token_id=tokenizer.eos_token_id,
         )
@@ -124,13 +124,89 @@ def call_llm(prompt: str) -> str:
     return answer
 
 
+# Baseline LLM answer without RAG context
+def call_llm_baseline(query: str) -> str:
+    messages = [
+        {
+            "role": "system",
+            "content": (
+                "You are a helpful and knowledgeable assistant. "
+                "Answer the user's question as clearly and accurately as possible."
+            ),
+        },
+        {
+            "role": "user",
+            "content": query,
+        },
+    ]
+
+    if hasattr(tokenizer, "apply_chat_template"):
+        model_inputs = tokenizer.apply_chat_template(
+            messages,
+            add_generation_prompt=True,
+            return_tensors="pt",
+        )
+    else:
+        chat_text = (
+            "System: You are a helpful and knowledgeable assistant.\n"
+            "User:\n"
+            f"{query}\n\n"
+            "Assistant:"
+        )
+        model_inputs = tokenizer(
+            chat_text,
+            return_tensors="pt",
+            truncation=True,
+            max_length=3072,
+        )
+
+    if isinstance(model_inputs, torch.Tensor):
+        model_inputs = {"input_ids": model_inputs}
+
+    if "attention_mask" not in model_inputs and "input_ids" in model_inputs:
+        model_inputs["attention_mask"] = torch.ones_like(model_inputs["input_ids"])
+
+    model_inputs = {k: v.to(model.device) for k, v in model_inputs.items()}
+
+    with torch.no_grad():
+        output_ids = model.generate(
+            **model_inputs,
+            max_new_tokens=512,
+            do_sample=False,
+            pad_token_id=tokenizer.eos_token_id,
+        )
+
+    generated_ids = output_ids[0][model_inputs["input_ids"].shape[1]:]
+
+    answer = tokenizer.decode(
+        generated_ids,
+        skip_special_tokens=True,
+        clean_up_tokenization_spaces=True,
+    ).strip()
+
+    if not answer:
+        full_text = tokenizer.decode(
+            output_ids[0],
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=True,
+        ).strip()
+        answer = full_text
+
+    if not answer:
+        answer = "The model did not generate a valid answer."
+
+    print("\n[DEBUG] Baseline LLM answer snippet:\n", answer[:300].replace("\n", " "))
+
+    return answer
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROC_DIR = BASE_DIR / "data" / "processed"
 INDEX_DIR = BASE_DIR / "data" / "index"
 
 
 def load_resources():
-    corpus_path = PROC_DIR / "corpus.csv"
+    corpus_path = PROC_DIR / "docs_corpus.csv"
     df = pd.read_csv(corpus_path)
 
     faiss_path = INDEX_DIR / "corpus.index"
@@ -189,10 +265,10 @@ def build_prompt(query: str, contexts):
             {query}
 
             ANSWER INSTRUCTIONS:
-            - Use ONLY the information from the contexts above.
-            - First, give 1–2 sentences of general explanation.
-            - Then, provide a numbered list of concrete, practical actions.
-            - If the contexts do not clearly contain the answer, say you are not sure.
+            - Use ONLY the information from the contexts above. Do not use outside knowledge.
+            - First, give a concise direct answer to the question (1–3 sentences).
+            - Then, if useful, add a short explanation or a brief numbered list of key points.
+            - If the contexts do not clearly contain the answer, say explicitly that you are not sure and explain why.
             """
     ).strip()
 
@@ -207,6 +283,21 @@ def rag_answer(query: str, df, index, embed_model, top_k: int = 5) -> str:
         print(f"  ({i}) doc_id={ctx['doc_id']} score={ctx['score']:.4f}")
         print(f"      {preview}...")
 
+    # If no contexts at all, fall back directly to baseline
+    if not contexts:
+        baseline_answer = call_llm_baseline(query)
+        return ("****************************[RAG NOTICE] No relevant information was found in the vector database. "
+                "Falling back to the base model's own knowledge.****************************\n\n") + baseline_answer
+
+    # Compute maximum similarity score
+    max_score = max(ctx["score"] for ctx in contexts)
+    if max_score < 0.5:
+        # Similarity too low: treat contexts as irrelevant and fall back
+        baseline_answer = call_llm_baseline(query)
+        return ("****************************[RAG NOTICE] No relevant information was found in the vector database."
+                " Falling back to the base model's own knowledge.****************************\n\n") + baseline_answer
+
+    # Otherwise, use RAG as normal
     prompt = build_prompt(query, contexts)
     answer = call_llm(prompt)
     return answer
@@ -215,7 +306,7 @@ def rag_answer(query: str, df, index, embed_model, top_k: int = 5) -> str:
 def main():
     df, index, embed_model = load_resources()
 
-    print("=== RAG QA demo ===")
+    print("============== RAG QA demo ==============")
     print("Type q / quit to exit.")
 
     while True:

@@ -13,10 +13,10 @@ INDEX_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def main():
-    corpus_path = PROC_DIR / "corpus.csv"
+    corpus_path = PROC_DIR / "docs_corpus.csv"
     df = pd.read_csv(corpus_path)
 
-    print(f"Loaded {len(df)} knowledge base documents")
+    print(f"Loaded {len(df)} document chunks for the knowledge base")
 
     texts = df["text"].astype(str).tolist()
     doc_ids = df["doc_id"].tolist()
