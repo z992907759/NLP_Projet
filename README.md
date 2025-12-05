@@ -18,7 +18,7 @@ src/
   build_index.py      # encode corpus + build FAISS index
   search_index.py     # simple retrieval demo
   plain_raw_qa.py     # baseline: LLM only (no RAG)
-  rag_qa.py           # main RAG QA pipeline
+  main.py             # main RAG QA pipeline
 ```
 
 ## Environment
