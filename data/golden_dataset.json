@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "question": "What are the main risk factors for non-smoking COPD in low- and middle-income countries?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["biomass fuel", "air pollution", "women", "PM2.5", "indoor"]
+  },
+  {
+    "id": 2,
+    "question": "Does providing free antiretroviral therapy improve viral suppression and retention in care?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["improve", "viral suppression", "retention", "positive impact", "systematic review"]
+  },
+  {
+    "id": 3,
+    "question": "What dietary factors are associated with the rise of early-onset colorectal cancer?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["red meat", "low milk", "whole grains", "diet", "processed meat"]
+  },
+  {
+    "id": 4,
+    "question": "Did the free ART policy in Cameroon reduce catastrophic health expenditures for all socioeconomic groups?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["poorest", "wealth decile", "pro-poor", "middle class", "did not benefit", "increased risk"]
+  },
+  {
+    "id": 5,
+    "question": "How does free access to ARV treatment impact global HIV targets?",
+    "type": "synthesis",
+    "expected_doc_ids": [1, 4],
+    "expected_answer_keywords": ["95-95-95", "UNAIDS", "suppression", "access", "financial barrier"]
+  },
+  {
+    "id": 6,
+    "question": "What is the best recipe for a chocolate cake?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["no information", "not found", "irrelevant", "context"]
+  }
+]

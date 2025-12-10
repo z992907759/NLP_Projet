@@ -1,0 +1,7 @@
+id,type,success,info
+1,direct,False,"Attendu: [2] | Trouvé: [np.int64(4), np.int64(4), np.int64(4), np.int64(4), np.int64(4)]"
+2,direct,True,"Attendu: [1] | Trouvé: [np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1)]"
+3,direct,False,"Attendu: [3] | Trouvé: [np.int64(7), np.int64(7), np.int64(7), np.int64(7), np.int64(7)]"
+4,direct,False,"Attendu: [4] | Trouvé: [np.int64(6), np.int64(6), np.int64(6), np.int64(6), np.int64(6)]"
+5,synthesis,True,"Attendu: [1, 4] | Trouvé: [np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1)]"
+6,trap,True,Max Score: 0.1569 (Seuil: 0.5)
