@@ -1,0 +1,7 @@
+id,question,type,success,info
+1,What are the main risk factors for non-smoking COPD in low- and middle-income countries?,direct,False,"Attendu: [2] | Trouvé: [np.int64(4), np.int64(4), np.int64(4), np.int64(4)]"
+2,Does providing free antiretroviral therapy improve viral suppression and retention in care?,direct,True,"Attendu: [1] | Trouvé: [np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1)]"
+3,What dietary factors are associated with the rise of early-onset colorectal cancer?,direct,False,"Attendu: [3] | Trouvé: [np.int64(7), np.int64(7), np.int64(7), np.int64(7), np.int64(7)]"
+4,Did the free ART policy in Cameroon reduce catastrophic health expenditures for all socioeconomic groups?,direct,False,"Attendu: [4] | Trouvé: [np.int64(6), np.int64(6), np.int64(6), np.int64(6)]"
+5,How does free access to ARV treatment impact global HIV targets?,synthesis,True,"Attendu: [1, 4] | Trouvé: [np.int64(1), np.int64(1), np.int64(1), np.int64(1)]"
+6,What is the best recipe for a chocolate cake?,trap,True,Max Score: 0.2025 (Seuil: 0.5)

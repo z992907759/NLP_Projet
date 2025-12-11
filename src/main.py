@@ -303,6 +303,85 @@ def rag_answer(query: str, df, index, embed_model, top_k: int = 5) -> str:
     return answer
 
 
+def retrieve_multi_query(query: str, df, index, embed_model, top_k: int = 5):
+    """
+    Recherche avancée avec reformulation
+    """
+    # Prompt pour générer des variations (Reformulation)
+    prompt_reformulation = (
+        f"You are an AI language model assistant. Your task is to generate 3 different versions "
+        f"of the given user question to retrieve relevant documents from a vector database. "
+        f"Provide these alternative questions separated by newlines. "
+        f"Original question: {query}"
+    )
+    
+    # On utilise le modèle pour imaginer d'autres façons de poser la question
+    print(f"\n[MULTI-QUERY] Generating variations for: '{query}'...")
+    variations_text = call_llm_baseline(prompt_reformulation)
+    
+    # Parsing : on nettoie pour avoir une liste de questions
+    queries = [query] # On garde l'originale
+    for line in variations_text.split('\n'):
+        line = line.strip()
+        if line and "?" in line: 
+            queries.append(line)
+            
+    # On limite pour ne pas être trop lent
+    queries = queries[:4] 
+    print(f"[MULTI-QUERY] Questions utilisées : {queries}")
+
+    # Boucle de recherche et Dédoublonnage
+    unique_docs = {} 
+    
+    for q in queries:
+        # On cherche k=3 pour chaque variation
+        results = retrieve(q, df, index, embed_model, top_k=3)
+        
+        for doc in results:
+            # On utilise le texte comme clé unique pour dédoublonner
+            key = doc['text']
+            if key not in unique_docs:
+                unique_docs[key] = doc
+                
+    # On retourne la liste dédoublonnée
+    final_contexts = list(unique_docs.values())
+    return final_contexts[:top_k*2]
+
+def rag_answer_multiquery(query: str, df, index, embed_model, top_k: int = 5) -> str:
+    """
+     Multi-Query Retrieval
+    """
+    # Récupération avancée (Reformulation + Dédoublonnage)
+    contexts = retrieve_multi_query(query, df, index, embed_model, top_k=top_k)
+
+    # Affichage des sources trouvées
+    print("\n[DEBUG] Contextes récupérés via Multi-Query :")
+    for i, ctx in enumerate(contexts, start=1):
+        # On coupe le texte pour que ça reste lisible dans la console
+        preview = ctx["text"][:150].replace("\n", " ")
+        # On affiche le score (qui vient de la requête spécifique qui a trouvé ce doc)
+        print(f"  ({i}) doc_id={ctx.get('doc_id', '?')} score={ctx.get('score', 0.0):.4f}")
+        print(f"      {preview}...")
+
+    # Vérification : Si vide ou scores trop bas
+    if not contexts:
+        print("[WARN] Aucun document trouvé après reformulation.")
+        return call_llm_baseline(query)
+
+    # On vérifie le meilleur score parmi tous les docs trouvés
+    max_score = max(ctx["score"] for ctx in contexts)
+    
+    if max_score < 0.45: 
+        print(f"[WARN] Score trop faible ({max_score:.4f}) malgré Multi-Query -> Baseline.")
+        baseline = call_llm_baseline(query)
+        return f"[RAG NOTICE] Information introuvable (Score max: {max_score:.2f}).\n\n{baseline}"
+
+    # Génération de la réponse
+    prompt = build_prompt(query, contexts)
+    answer = call_llm(prompt)
+    return answer
+
+
 def main():
     df, index, embed_model = load_resources()
 
@@ -315,7 +394,7 @@ def main():
             print("Bye ~")
             break
 
-        answer = rag_answer(query, df, index, embed_model, top_k=5)
+        answer = rag_answer_multiquery(query, df, index, embed_model, top_k=5)
         print("\n=================== Model Answer ===================")
         print(answer)
         print("="*50)

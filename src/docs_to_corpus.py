@@ -3,8 +3,6 @@ import re
 import json
 import pandas as pd
 
-# Directory containing raw documents (plain text)
-RAW_DOC_DIR = Path("../data/raw_docs")
 PROC_DIR = Path("../data/processed")
 PROC_DIR.mkdir(parents=True, exist_ok=True)
 
