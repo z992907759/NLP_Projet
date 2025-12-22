@@ -5,102 +5,141 @@ from pathlib import Path
 from tqdm import tqdm
 import sys
 
+# CONFIGURATION ET IMPORTS
 
-# Mettre à True pour tester le Multi-Query, False pour la recherche simple
-SIMILARITY_THRESHOLD = 0.5
-USE_MULTI_QUERY = True 
-OUTPUT_FILENAME = "evaluation_results_multiquery.csv" if USE_MULTI_QUERY else "evaluation_results_baseline.csv"
-
-
-# On essaie d'importer les fonctions depuis main.py
+# On a besoin d'importer les briques technologiques depuis main.py
+# (FAISS, BM25, Fusion, Reranking)
 try:
-    from main import load_resources, retrieve, retrieve_multi_query
-except ImportError:
     sys.path.append("src")
-    from main import load_resources, retrieve, retrieve_multi_query
+    from main import (
+        load_resources, 
+        retrieve_faiss, 
+        retrieve_bm25, 
+        reciprocal_rank_fusion, 
+        rerank_contexts
+    )
+except ImportError:
+    # Fallback si lancé depuis le dossier src directement
+    from main import (
+        load_resources, 
+        retrieve_faiss, 
+        retrieve_bm25, 
+        reciprocal_rank_fusion, 
+        rerank_contexts
+    )
 
-# Chemins
+# Chemins des fichiers
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATASET_PATH = BASE_DIR / "data" / "golden_dataset.json"
+OUTPUT_FILENAME = "evaluation_results_v4_hybrid.csv"
+
+# Seuil de pertinence du Cross-Encoder.
+# Contrairement à la distance Cosinus (0 à 1), le Cross-Encoder sort des "logits".
+# Une valeur < 0 signifie généralement que le document n'est pas pertinent.
+THRESHOLD_STRICT = 0.0 
+
+
+# PIPELINE D'ÉVALUATION (SIMULATION V4)
+
+def retrieve_eval_pipeline(query, df, index, embed_model, bm25, reranker, top_k=5):
+    # 1. Branche Dense (Sémantique - FAISS)
+    # On récupère large (top 15) pour ne rien rater
+    res_faiss = retrieve_faiss(query, df, index, embed_model, top_k=15)
+    
+    # 2. Branche Sparse (Mots-clés - BM25)
+    # On récupère large aussi pour attraper les acronymes/codes
+    res_bm25 = retrieve_bm25(query, df, bm25, top_k=15)
+    
+    # 3. Fusion (RRF)
+    # On combine les deux listes mathématiquement
+    fused_docs = reciprocal_rank_fusion(res_faiss, res_bm25)
+    
+    # 4. Reranking Final (Cross-Encoder)
+    # Le modèle expert relit les candidats et ne garde que le Top K
+    final_docs = rerank_contexts(query, fused_docs, reranker, top_k=top_k)
+    
+    return final_docs
+
+
+# CALCUL DES MÉTRIQUES
 
 def calculate_metrics(retrieved_docs, expected_ids):
-    """
-    Vérifie si l'un des documents attendus est présent dans les résultats récupérés.
-    """
+
     if not expected_ids:
-        return False, 0.0 # Cas des questions pièges
+        return False, 0.0 # Cas particulier des questions pièges
     
     found_ids = [d.get('doc_id') for d in retrieved_docs]
     
-    # Est-ce qu'on a trouvé au moins UN bon document ?
+    # Succès = Au moins UN des documents attendus a été trouvé
     success = any(e_id in found_ids for e_id in expected_ids)
     
-    # Calcul du score moyen des bons documents trouvés
+    # On calcule la moyenne des scores des bons documents (pour info)
     relevant_scores = [d['score'] for d in retrieved_docs if d.get('doc_id') in expected_ids]
     avg_score = sum(relevant_scores) / len(relevant_scores) if relevant_scores else 0.0
     
     return success, avg_score
 
+
+# MAIN (BOUCLE DE TEST)
+
 def main():
-    mode_str = "MULTI-QUERY" if USE_MULTI_QUERY else "SIMPLE RETRIEVAL"
-    print(f"=== Démarrage de l'évaluation automatique : {mode_str} ===")
+    print(f"=== ÉVALUATION SCIENTIFIQUE : MODE HYBRIDE V4 ===")
     
-    # Chargement du Golden Dataset
+    # 1. Vérification du Dataset
     if not DATASET_PATH.exists():
         print(f"[ERREUR] Le fichier {DATASET_PATH} n'existe pas.")
+        print("Veuillez créer 'data/golden_dataset.json' avant de lancer l'évaluation.")
         return
     
     with open(DATASET_PATH, "r", encoding="utf-8") as f:
         dataset = json.load(f)
-    print(f"[INFO] {len(dataset)} questions chargées depuis le Golden Dataset.")
+    print(f"[INFO] {len(dataset)} questions chargées pour le test.")
 
-    # Chargement du moteur RAG
-    print("[INFO] Chargement des ressources RAG (Index, Modèle...)...")
-    df, index, embed_model = load_resources()
+    # 2. Chargement du Moteur Complet (5 ressources)
+    print("[INFO] Chargement du moteur (FAISS, BM25, Cross-Encoder)...")
+    # Attention : load_resources renvoie maintenant 5 objets
+    df, index, embed_model, reranker, bm25 = load_resources()
     
-    # Boucle d'évaluation
     results = []
     correct_retrieval_count = 0
     trap_success_count = 0
+    total_scorable = 0 # Nombre de questions "normales" (pas des pièges)
     
-    total_scorable = 0 
+    print("\n--- Exécution du Benchmark ---")
     
-    print("\n--- Lancement des tests ---")
     for item in tqdm(dataset):
         query = item["question"]
         q_type = item["type"]
         expected_ids = item.get("expected_doc_ids", [])
         
-        if USE_MULTI_QUERY:
-            # On utilise la fonction avancée
-            retrieved_contexts = retrieve_multi_query(query, df, index, embed_model, top_k=5)
-        else:
-            # On utilise l'ancienne fonction simple
-            retrieved_contexts = retrieve(query, df, index, embed_model, top_k=5)
+        # --- APPEL DU PIPELINE V4 ---
+        retrieved_contexts = retrieve_eval_pipeline(query, df, index, embed_model, bm25, reranker, top_k=5)
         
-        # Analyse des résultats
+        # --- ANALYSE DES RÉSULTATS ---
+        
         if q_type == "trap":
-            # Pour un piège, succès = aucun document trouvé OU scores très bas
+            # CAS 1 : Question Piège (Trap)
+            # Le but est que le modèle ne trouve rien ou ait un score très bas.
             if not retrieved_contexts:
-                max_score = 0
+                max_score = -10.0 # Score arbitraire très bas
             else:
                 max_score = max([c['score'] for c in retrieved_contexts])
             
-            # On considère réussi si le score max est sous le seuil de pertinence (ex: 0.5)
-            is_success = max_score < SIMILARITY_THRESHOLD
+            # Succès si le score max est SOUS le seuil strict
+            is_success = max_score < THRESHOLD_STRICT
+            
             if is_success:
                 trap_success_count += 1
             
             results.append({
                 "id": item["id"],
-                "question": query,
-                "type": "trap",
+                "type": "TRAP",
                 "success": is_success,
-                "info": f"Max Score: {max_score:.4f} (Seuil: {SIMILARITY_THRESHOLD})"
+                "info": f"Max Score: {max_score:.2f} (Seuil < {THRESHOLD_STRICT})"
             })
             
         else:
-            # Pour une question normale
+            # CAS 2 : Question Standard
             total_scorable += 1
             is_success, avg_conf = calculate_metrics(retrieved_contexts, expected_ids)
             
@@ -110,38 +149,33 @@ def main():
             found_ids = [c.get('doc_id') for c in retrieved_contexts]
             results.append({
                 "id": item["id"],
-                "question": query,
                 "type": q_type,
                 "success": is_success,
-                "info": f"Attendu: {expected_ids} | Trouvé: {found_ids}"
+                "info": f"Attendu: {expected_ids} | Trouvé: {found_ids} | Score: {avg_conf:.2f}"
             })
 
-    # Génération du Rapport
+    # 3. Génération du Rapport Final
     accuracy = (correct_retrieval_count / total_scorable * 100) if total_scorable > 0 else 0
     
-    print("\n" + "="*40)
-    print(f"    RAPPORT D'ÉVALUATION ({mode_str})    ")
-    print("="*40)
-    print(f"Questions valides testées : {total_scorable}")
-    print("-" * 40)
-    print(f"✅ PRÉCISION DU RETRIEVAL : {accuracy:.2f}%")
-    print("-" * 40)
+    print("\n" + "="*50)
+    print(f"    RAPPORT DE PERFORMANCE (V4 HYBRID)    ")
+    print("="*50)
+    print(f" PRÉCISION DU RETRIEVAL : {accuracy:.2f}%")
+    print("   (Capacité à trouver le bon document dans le top 5)")
+    print("-" * 50)
     
     nb_traps = len(dataset) - total_scorable
     if nb_traps > 0:
         trap_acc = (trap_success_count / nb_traps) * 100
         print(f"🛡️  FILTRAGE DES PIÈGES    : {trap_acc:.2f}%")
+        print("   (Capacité à rejeter les questions hors-sujet)")
     
-    print("-" * 40)
-    print("Détails par question :")
-    for res in results:
-        icon = "✅" if res["success"] else "❌"
-        print(f"{icon} [Q{res['id']}] {res['info']}")
-        
+    print("-" * 50)
+    
     # Sauvegarde CSV
     out_path = BASE_DIR / "data" / OUTPUT_FILENAME
     pd.DataFrame(results).to_csv(out_path, index=False)
-    print(f"\nRapport détaillé sauvegardé dans {out_path}")
+    print(f"[INFO] Détails sauvegardés dans : {out_path}")
 
 if __name__ == "__main__":
     main()
