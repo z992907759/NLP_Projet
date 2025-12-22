@@ -9,9 +9,11 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import warnings
 
-# ====== Load LLM ======
-
+# ====== CONFIGURATION GLOBALE ======
 MODEL_NAME = "meta-llama/Llama-3.2-1B-Instruct"
+DEFAULT_THRESHOLD = 0.50  # Seuil de pertinence initial
+
+# ===================================
 
 print(f"Loading LLM model: {MODEL_NAME}")
 
@@ -275,7 +277,10 @@ def build_prompt(query: str, contexts):
     return prompt
 
 
-def rag_answer(query: str, df, index, embed_model, top_k: int = 5) -> str:
+def rag_answer(query: str, df, index, embed_model, top_k: int = 5, threshold: float = DEFAULT_THRESHOLD) -> str:
+    """
+    Version 1 : RAG Simple avec gestion de seuil
+    """
     contexts = retrieve(query, df, index, embed_model, top_k=top_k)
     print("\n[DEBUG] Retrieved contexts:")
     for i, ctx in enumerate(contexts, start=1):
@@ -283,19 +288,15 @@ def rag_answer(query: str, df, index, embed_model, top_k: int = 5) -> str:
         print(f"  ({i}) doc_id={ctx['doc_id']} score={ctx['score']:.4f}")
         print(f"      {preview}...")
 
-    # If no contexts at all, fall back directly to baseline
+    # Gestion du seuil dynamique
     if not contexts:
-        baseline_answer = call_llm_baseline(query)
-        return ("****************************[RAG NOTICE] No relevant information was found in the vector database. "
-                "Falling back to the base model's own knowledge.****************************\n\n") + baseline_answer
+        return _fallback(query)
 
-    # Compute maximum similarity score
     max_score = max(ctx["score"] for ctx in contexts)
-    if max_score < 0.5:
-        # Similarity too low: treat contexts as irrelevant and fall back
-        baseline_answer = call_llm_baseline(query)
-        return ("****************************[RAG NOTICE] No relevant information was found in the vector database."
-                " Falling back to the base model's own knowledge.****************************\n\n") + baseline_answer
+    
+    if max_score < threshold:
+        print(f"\n[RAG INFO] Score trop faible ({max_score:.4f} < {threshold}). Passage en mode Baseline.")
+        return _fallback(query)
 
     # Otherwise, use RAG as normal
     prompt = build_prompt(query, contexts)
@@ -307,7 +308,7 @@ def retrieve_multi_query(query: str, df, index, embed_model, top_k: int = 5):
     """
     Recherche avancée avec reformulation
     """
-    # Prompt pour générer des variations (Reformulation)
+    # Prompt pour générer des variations
     prompt_reformulation = (
         f"You are an AI language model assistant. Your task is to generate 3 different versions "
         f"of the given user question to retrieve relevant documents from a vector database. "
@@ -315,18 +316,16 @@ def retrieve_multi_query(query: str, df, index, embed_model, top_k: int = 5):
         f"Original question: {query}"
     )
     
-    # On utilise le modèle pour imaginer d'autres façons de poser la question
     print(f"\n[MULTI-QUERY] Generating variations for: '{query}'...")
     variations_text = call_llm_baseline(prompt_reformulation)
     
-    # Parsing : on nettoie pour avoir une liste de questions
-    queries = [query] # On garde l'originale
+    # Parsing
+    queries = [query]
     for line in variations_text.split('\n'):
         line = line.strip()
         if line and "?" in line: 
             queries.append(line)
             
-    # On limite pour ne pas être trop lent
     queries = queries[:4] 
     print(f"[MULTI-QUERY] Questions utilisées : {queries}")
 
@@ -334,71 +333,92 @@ def retrieve_multi_query(query: str, df, index, embed_model, top_k: int = 5):
     unique_docs = {} 
     
     for q in queries:
-        # On cherche k=3 pour chaque variation
         results = retrieve(q, df, index, embed_model, top_k=3)
-        
         for doc in results:
-            # On utilise le texte comme clé unique pour dédoublonner
             key = doc['text']
             if key not in unique_docs:
                 unique_docs[key] = doc
                 
-    # On retourne la liste dédoublonnée
     final_contexts = list(unique_docs.values())
     return final_contexts[:top_k*2]
 
-def rag_answer_multiquery(query: str, df, index, embed_model, top_k: int = 5) -> str:
+
+def rag_answer_multiquery(query: str, df, index, embed_model, top_k: int = 5, threshold: float = DEFAULT_THRESHOLD) -> str:
     """
-     Multi-Query Retrieval
+    Version 2 : Multi-Query Retrieval avec gestion de seuil
     """
-    # Récupération avancée (Reformulation + Dédoublonnage)
     contexts = retrieve_multi_query(query, df, index, embed_model, top_k=top_k)
 
-    # Affichage des sources trouvées
     print("\n[DEBUG] Contextes récupérés via Multi-Query :")
     for i, ctx in enumerate(contexts, start=1):
-        # On coupe le texte pour que ça reste lisible dans la console
         preview = ctx["text"][:150].replace("\n", " ")
-        # On affiche le score (qui vient de la requête spécifique qui a trouvé ce doc)
         print(f"  ({i}) doc_id={ctx.get('doc_id', '?')} score={ctx.get('score', 0.0):.4f}")
         print(f"      {preview}...")
 
-    # Vérification : Si vide ou scores trop bas
     if not contexts:
         print("[WARN] Aucun document trouvé après reformulation.")
-        return call_llm_baseline(query)
+        return _fallback(query)
 
-    # On vérifie le meilleur score parmi tous les docs trouvés
     max_score = max(ctx["score"] for ctx in contexts)
     
-    if max_score < 0.45: 
-        print(f"[WARN] Score trop faible ({max_score:.4f}) malgré Multi-Query -> Baseline.")
-        baseline = call_llm_baseline(query)
-        return f"[RAG NOTICE] Information introuvable (Score max: {max_score:.2f}).\n\n{baseline}"
+    # On utilise la variable threshold ici aussi
+    if max_score < threshold: 
+        print(f"[WARN] Score trop faible ({max_score:.4f} < {threshold}) malgré Multi-Query -> Baseline.")
+        return _fallback(query, info=f"Information introuvable (Score max: {max_score:.2f}).")
 
-    # Génération de la réponse
     prompt = build_prompt(query, contexts)
     answer = call_llm(prompt)
     return answer
 
 
+def _fallback(query, info=""):
+    """Fonction utilitaire pour gérer le message de fallback propre"""
+    baseline = call_llm_baseline(query)
+    header = "[RAG NOTICE] " + info if info else "[RAG NOTICE] No relevant information found in vector DB."
+    return f"****************************{header} Falling back to base model knowledge.****************************\n\n{baseline}"
+
+
 def main():
     df, index, embed_model = load_resources()
 
-    print("============== RAG QA demo ==============")
-    print("Type q / quit to exit.")
+    current_threshold = DEFAULT_THRESHOLD
 
+    print("============== RAG QA System (Multi-Query + Dynamic Threshold) ==============")
+    print(f"Configuration : Seuil initial = {current_threshold}")
+    print("Commandes :")
+    print(" - Tapez votre question normalement")
+    print(" - Tapez '/seuil 0.X' pour changer la sensibilité (ex: /seuil 0.8)")
+    print(" - Tapez 'q' pour quitter")
+    
     while True:
-        query = input("\nPlease enter your question: ").strip()
-        if query.lower() in {"q", "quit", "exit"}:
-            print("Bye ~")
+        user_input = input(f"\n(Seuil: {current_threshold}) Votre question : ").strip()
+        
+        # 1. Gestion Sortie
+        if user_input.lower() in {"q", "quit", "exit"}:
+            print("Au revoir !")
             break
+            
+        # 2. Gestion Dynamique du Seuil
+        if user_input.startswith("/seuil"):
+            try:
+                new_val = float(user_input.split(" ")[1])
+                current_threshold = new_val
+                print(f"✅ Seuil mis à jour à : {current_threshold}")
+                continue 
+            except (IndexError, ValueError):
+                print("❌ Erreur de format. Utilisez : /seuil 0.X")
+                continue
 
-        answer = rag_answer_multiquery(query, df, index, embed_model, top_k=5)
-        print("\n=================== Model Answer ===================")
-        print(answer)
-        print("="*50)
+        # 3. Comparaison (Démo)
+        print("\n" + "-"*20 + " VERSION 1: SIMPLE RAG " + "-"*20)
+        ans_simple = rag_answer(user_input, df, index, embed_model, top_k=5, threshold=current_threshold)
+        print(ans_simple)
 
+        print("\n" + "-"*20 + " VERSION 2: MULTI-QUERY " + "-"*20)
+        ans_advanced = rag_answer_multiquery(user_input, df, index, embed_model, top_k=5, threshold=current_threshold)
+        print(ans_advanced)
+        
+        print("="*60)
 
 if __name__ == "__main__":
     main()

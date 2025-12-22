@@ -7,6 +7,7 @@ import sys
 
 
 # Mettre à True pour tester le Multi-Query, False pour la recherche simple
+SIMILARITY_THRESHOLD = 0.5
 USE_MULTI_QUERY = True 
 OUTPUT_FILENAME = "evaluation_results_multiquery.csv" if USE_MULTI_QUERY else "evaluation_results_baseline.csv"
 
@@ -86,7 +87,7 @@ def main():
                 max_score = max([c['score'] for c in retrieved_contexts])
             
             # On considère réussi si le score max est sous le seuil de pertinence (ex: 0.5)
-            is_success = max_score < 0.5
+            is_success = max_score < SIMILARITY_THRESHOLD
             if is_success:
                 trap_success_count += 1
             
@@ -95,7 +96,7 @@ def main():
                 "question": query,
                 "type": "trap",
                 "success": is_success,
-                "info": f"Max Score: {max_score:.4f} (Seuil: 0.5)"
+                "info": f"Max Score: {max_score:.4f} (Seuil: {SIMILARITY_THRESHOLD})"
             })
             
         else:
