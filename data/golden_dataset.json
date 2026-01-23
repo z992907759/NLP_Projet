@@ -1,0 +1,4254 @@
+[
+  {
+    "id": 1,
+    "question": "What are the main objectives of the WHO Pocket Book of Hospital Care for Children?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["guidelines", "hospital care", "children", "low-resource", "first-referral"]
+  },
+  {
+    "id": 2,
+    "question": "Which childhood conditions are identified as major causes of mortality in the Pocket Book?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["pneumonia", "diarrhoea", "malaria", "meningitis", "severe acute malnutrition", "HIV"]
+  },
+  {
+    "id": 3,
+    "question": "What are the key emergency signs used in the triage of sick children?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["airway", "breathing", "circulation", "unconsciousness", "central cyanosis", "shock"]
+  },
+  {
+    "id": 4,
+    "question": "What immediate actions are recommended when a child presents with emergency signs?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["call for help", "resuscitate", "emergency treatment", "glucose", "oxygen"]
+  },
+  {
+    "id": 5,
+    "question": "How does the Pocket Book define priority signs in pediatric triage?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["prompt assessment", "priority signs", "urgent treatment"]
+  },
+  {
+    "id": 6,
+    "question": "What diagnostic approach is recommended for a child presenting with cough or difficulty in breathing?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["differential diagnosis", "pneumonia", "wheeze", "stridor", "severity"]
+  },
+  {
+    "id": 7,
+    "question": "How is the severity of pneumonia classified according to the Pocket Book?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["non-severe", "severe", "classification", "clinical signs"]
+  },
+  {
+    "id": 8,
+    "question": "What are the recommended treatments for severe dehydration in children?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["intravenous fluids", "rehydration", "emergency", "monitoring"]
+  },
+  {
+    "id": 9,
+    "question": "How does the Pocket Book address the management of severe acute malnutrition?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["F-75", "stabilization", "rehabilitation", "monitoring", "feeding"]
+  },
+  {
+    "id": 10,
+    "question": "What follow-up care is recommended for children discharged after nutritional treatment?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["follow-up", "weight monitoring", "nutritional counselling", "reassessment"]
+  },
+  {
+    "id": 11,
+    "question": "What clinical staging system is used for pediatric HIV infection?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["WHO clinical staging", "HIV", "children"]
+  },
+  {
+    "id": 12,
+    "question": "When does the Pocket Book recommend initiating antiretroviral therapy in children?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["when to start ART", "clinical staging", "eligibility"]
+  },
+  {
+    "id": 13,
+    "question": "What supportive care measures are recommended for HIV-positive children?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["nutrition", "vaccination", "co-trimoxazole", "supportive care"]
+  },
+  {
+    "id": 14,
+    "question": "What guidance is provided for the prevention of mother-to-child transmission of HIV?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["PMTCT", "antiretroviral", "infant feeding", "prevention"]
+  },
+  {
+    "id": 15,
+    "question": "How does the Pocket Book recommend monitoring a child’s progress during hospitalization?",
+    "type": "direct",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["daily monitoring", "vital signs", "treatment response", "complications"]
+  },
+
+  {
+    "id": 16,
+    "question": "How do triage procedures and diagnostic guidelines together contribute to reducing childhood mortality?",
+    "type": "synthesis",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["early identification", "emergency treatment", "diagnosis", "mortality reduction"]
+  },
+  {
+    "id": 17,
+    "question": "How does the management of severe acute malnutrition integrate feeding, monitoring, and follow-up?",
+    "type": "synthesis",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["stabilization", "feeding protocols", "monitoring", "follow-up"]
+  },
+  {
+    "id": 18,
+    "question": "How are HIV management guidelines integrated with general pediatric care in the Pocket Book?",
+    "type": "synthesis",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["integration", "HIV care", "supportive care", "hospital management"]
+  },
+  {
+    "id": 19,
+    "question": "How does the Pocket Book align inpatient care with IMCI principles?",
+    "type": "synthesis",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["IMCI", "continuity of care", "hospital", "outpatient"]
+  },
+  {
+    "id": 20,
+    "question": "How do discharge planning and follow-up recommendations improve long-term outcomes for children?",
+    "type": "synthesis",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["discharge", "follow-up care", "prevention", "outcomes"]
+  },
+  {
+    "id": 21,
+    "question": "How does the Pocket Book adapt clinical guidelines to low-resource hospital settings?",
+    "type": "synthesis",
+    "expected_doc_ids": [1],
+    "expected_answer_keywords": ["low-resource", "basic laboratory", "essential medicines", "adaptation"]
+  },
+
+  {
+    "id": 22,
+    "question": "What are the recommended surgical techniques for pediatric cardiac bypass surgery?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not found", "not covered", "no information", "outside scope"]
+  },
+  {
+    "id": 23,
+    "question": "What genomic biomarkers are used to predict treatment response in pediatric HIV?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["no information", "not discussed", "outside scope"]
+  },
+  {
+    "id": 24,
+    "question": "What is the role of CRISPR gene therapy in managing childhood pneumonia?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not mentioned", "irrelevant", "outside context"]
+  },
+
+
+
+
+  {
+    "id": 25,
+    "question": "What is the estimated number of new cancer cases in the United States in 2023?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["new cancer cases", "2023", "estimated", "United States"]
+  },
+  {
+    "id": 26,
+    "question": "How many cancer-related deaths are projected to occur in the United States in 2023?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["cancer deaths", "mortality", "2023", "United States"]
+  },
+  {
+    "id": 27,
+    "question": "Which cancer types are the most commonly diagnosed among men in 2023?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["prostate cancer", "lung cancer", "colorectal cancer", "men"]
+  },
+  {
+    "id": 28,
+    "question": "Which cancer types are the most commonly diagnosed among women in 2023?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["breast cancer", "lung cancer", "colorectal cancer", "women"]
+  },
+  {
+    "id": 29,
+    "question": "What are the leading causes of cancer death among men according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["lung cancer", "prostate cancer", "colorectal cancer", "mortality"]
+  },
+  {
+    "id": 30,
+    "question": "What are the leading causes of cancer death among women according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["lung cancer", "breast cancer", "colorectal cancer", "mortality"]
+  },
+  {
+    "id": 31,
+    "question": "How have overall cancer death rates changed over recent decades in the United States?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["decline", "cancer death rate", "trend", "progress"]
+  },
+  {
+    "id": 32,
+    "question": "What role has smoking reduction played in cancer mortality trends?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["smoking decline", "lung cancer", "mortality reduction"]
+  },
+  {
+    "id": 33,
+    "question": "Which populations experience the highest cancer incidence rates?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["racial disparities", "ethnic groups", "incidence rates"]
+  },
+  {
+    "id": 34,
+    "question": "What disparities in cancer mortality are highlighted in the report?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["health disparities", "mortality gap", "race", "socioeconomic"]
+  },
+  {
+    "id": 35,
+    "question": "What proportion of cancer deaths is considered preventable according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["preventable", "risk factors", "smoking", "obesity"]
+  },
+  {
+    "id": 36,
+    "question": "Which modifiable risk factors contribute most significantly to cancer incidence?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["smoking", "diet", "physical inactivity", "alcohol"]
+  },
+  {
+    "id": 37,
+    "question": "How does early detection influence cancer survival outcomes?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["early detection", "screening", "survival rates"]
+  },
+  {
+    "id": 38,
+    "question": "What improvements in cancer survival rates are reported for recent years?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["survival improvement", "five-year survival", "advances"]
+  },
+  {
+    "id": 39,
+    "question": "How does cancer incidence vary by age group?",
+    "type": "direct",
+    "expected_doc_ids": [2],
+    "expected_answer_keywords": ["age", "older adults", "incidence increases"]
+  },
+
+  {
+    "id": 40,
+    "question": "How do trends in cancer mortality reported in Cancer Facts & Figures 2023 compare with improvements in pediatric care described in document 01?",
+    "type": "synthesis",
+    "expected_doc_ids": [1, 2],
+    "expected_answer_keywords": ["mortality decline", "healthcare improvements", "early intervention", "guidelines"]
+  },
+  {
+    "id": 41,
+    "question": "How do preventive strategies discussed in the cancer report align with public health principles seen in hospital care guidelines?",
+    "type": "synthesis",
+    "expected_doc_ids": [1, 2],
+    "expected_answer_keywords": ["prevention", "risk reduction", "public health", "early management"]
+  },
+  {
+    "id": 42,
+    "question": "How do disparities in cancer outcomes relate to access to care issues highlighted in clinical guideline documents?",
+    "type": "synthesis",
+    "expected_doc_ids": [1, 2],
+    "expected_answer_keywords": ["health disparities", "access to care", "outcomes", "equity"]
+  },
+  {
+    "id": 43,
+    "question": "How do advances in early diagnosis influence long-term survival across different diseases?",
+    "type": "synthesis",
+    "expected_doc_ids": [1, 2],
+    "expected_answer_keywords": ["early diagnosis", "screening", "survival benefit"]
+  },
+  {
+    "id": 44,
+    "question": "How do behavioral risk factors contribute to disease burden across oncology and pediatric conditions?",
+    "type": "synthesis",
+    "expected_doc_ids": [1, 2],
+    "expected_answer_keywords": ["risk factors", "behavioral", "disease burden", "prevention"]
+  },
+  {
+    "id": 45,
+    "question": "How do guideline-based interventions improve population-level health outcomes?",
+    "type": "synthesis",
+    "expected_doc_ids": [1, 2],
+    "expected_answer_keywords": ["guidelines", "evidence-based", "population health"]
+  },
+
+  {
+    "id": 46,
+    "question": "What are the main causes of inflation in the European Central Bank monetary policy framework?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not related", "no information", "outside scope", "economics"]
+  },
+  {
+    "id": 47,
+    "question": "How does quantum entanglement affect satellite-based communication systems?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not mentioned", "outside domain", "physics"]
+  },
+  {
+    "id": 48,
+    "question": "What are the key architectural components of a Kubernetes orchestration cluster?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "irrelevant", "computer science"]
+  },
+
+
+
+  {
+    "id": 49,
+    "question": "How does the report define epilepsy from a public health perspective?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["chronic neurological disorder", "recurrent seizures", "brain"]
+  },
+  {
+    "id": 50,
+    "question": "Approximately how many people worldwide are affected by epilepsy according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["global prevalence", "millions", "worldwide"]
+  },
+  {
+    "id": 51,
+    "question": "What proportion of people with epilepsy live in low- and middle-income countries?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["low- and middle-income countries", "majority", "global burden"]
+  },
+  {
+    "id": 52,
+    "question": "What is the epilepsy treatment gap described in the report?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["treatment gap", "lack of access", "untreated"]
+  },
+  {
+    "id": 53,
+    "question": "Which factors contribute most to the epilepsy treatment gap?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["limited access", "cost", "lack of trained professionals", "stigma"]
+  },
+  {
+    "id": 54,
+    "question": "How does stigma affect people living with epilepsy?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["stigma", "discrimination", "social exclusion"]
+  },
+  {
+    "id": 55,
+    "question": "What are the main causes of epilepsy highlighted in the report?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["brain injury", "infections", "stroke", "perinatal causes"]
+  },
+  {
+    "id": 56,
+    "question": "What role do preventable causes play in the global burden of epilepsy?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["preventable", "infections", "injuries", "public health"]
+  },
+  {
+    "id": 57,
+    "question": "How does epilepsy impact education and employment opportunities?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["education", "employment", "quality of life", "discrimination"]
+  },
+  {
+    "id": 58,
+    "question": "What mental health comorbidities are commonly associated with epilepsy?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["depression", "anxiety", "mental health"]
+  },
+  {
+    "id": 59,
+    "question": "How does epilepsy affect mortality risk compared to the general population?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["increased mortality", "premature death", "risk"]
+  },
+  {
+    "id": 60,
+    "question": "What evidence does the report provide regarding the effectiveness of anti-seizure medications?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["effective treatment", "anti-epileptic drugs", "seizure control"]
+  },
+  {
+    "id": 61,
+    "question": "What barriers to epilepsy care exist within health systems?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["health system barriers", "training", "availability", "infrastructure"]
+  },
+  {
+    "id": 62,
+    "question": "How does the report frame epilepsy as a human rights issue?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["human rights", "discrimination", "equity"]
+  },
+  {
+    "id": 63,
+    "question": "What role do community-based interventions play in epilepsy care?",
+    "type": "direct",
+    "expected_doc_ids": [3],
+    "expected_answer_keywords": ["community-based care", "awareness", "support"]
+  },
+
+  {
+    "id": 64,
+    "question": "How does the epilepsy treatment gap described in document 03 relate to access-to-care challenges discussed in document 01?",
+    "type": "synthesis",
+    "expected_doc_ids": [1, 3],
+    "expected_answer_keywords": ["access to care", "health system capacity", "treatment gap"]
+  },
+  {
+    "id": 65,
+    "question": "How do stigma and social exclusion in epilepsy compare to disparities observed in cancer outcomes reported in document 02?",
+    "type": "synthesis",
+    "expected_doc_ids": [2, 3],
+    "expected_answer_keywords": ["stigma", "health disparities", "social determinants"]
+  },
+  {
+    "id": 66,
+    "question": "How does prevention of epilepsy through injury and infection control align with broader disease prevention strategies?",
+    "type": "synthesis",
+    "expected_doc_ids": [2, 3],
+    "expected_answer_keywords": ["prevention", "risk reduction", "public health strategies"]
+  },
+  {
+    "id": 67,
+    "question": "How do guideline-based approaches in hospital care support improved outcomes for chronic neurological conditions?",
+    "type": "synthesis",
+    "expected_doc_ids": [1, 3],
+    "expected_answer_keywords": ["guidelines", "continuity of care", "chronic disease management"]
+  },
+  {
+    "id": 68,
+    "question": "How does improving early diagnosis affect long-term outcomes in epilepsy and other chronic diseases?",
+    "type": "synthesis",
+    "expected_doc_ids": [2, 3],
+    "expected_answer_keywords": ["early diagnosis", "long-term outcomes", "mortality reduction"]
+  },
+  {
+    "id": 69,
+    "question": "How can strengthening primary healthcare systems reduce the global burden of epilepsy?",
+    "type": "synthesis",
+    "expected_doc_ids": [1, 3],
+    "expected_answer_keywords": ["primary healthcare", "access", "burden reduction"]
+  },
+
+  {
+    "id": 70,
+    "question": "What are the orbital mechanics governing geostationary satellites?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not related", "outside scope", "astronomy"]
+  },
+  {
+    "id": 71,
+    "question": "How does blockchain technology ensure data immutability in financial systems?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "irrelevant", "computer science"]
+  },
+  {
+    "id": 72,
+    "question": "What factors influence exchange rate fluctuations in international markets?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["no information", "outside domain", "economics"]
+  },
+  {
+    "id": 73,
+    "question": "How does the report define depression as a mental health disorder?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["depression", "mental disorder", "persistent sadness", "loss of interest"]
+  },
+  {
+    "id": 74,
+    "question": "What are considered common mental disorders according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["depression", "anxiety disorders", "common mental disorders"]
+  },
+  {
+    "id": 75,
+    "question": "Approximately how many people worldwide are affected by depression?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["global prevalence", "millions", "worldwide"]
+  },
+  {
+    "id": 76,
+    "question": "Which age groups are most affected by depression globally?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["adults", "working-age population", "older adolescents"]
+  },
+  {
+    "id": 77,
+    "question": "How does the prevalence of depression differ between men and women?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["higher in women", "gender difference", "prevalence"]
+  },
+  {
+    "id": 78,
+    "question": "What proportion of the global population is affected by anxiety disorders?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["anxiety disorders", "global prevalence", "percentage"]
+  },
+  {
+    "id": 79,
+    "question": "How do depressive disorders contribute to global disability?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["disability", "years lived with disability", "YLD"]
+  },
+  {
+    "id": 80,
+    "question": "What is the relationship between depression and suicide risk mentioned in the report?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["suicide", "increased risk", "mental health"]
+  },
+  {
+    "id": 81,
+    "question": "How does depression impact economic productivity and daily functioning?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["productivity loss", "functional impairment", "work disability"]
+  },
+  {
+    "id": 82,
+    "question": "What regional variations in depression prevalence are described?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["regional variation", "WHO regions", "prevalence differences"]
+  },
+  {
+    "id": 83,
+    "question": "What are the main risk factors associated with depression?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["poverty", "unemployment", "life events", "chronic illness"]
+  },
+  {
+    "id": 84,
+    "question": "How does depression commonly co-occur with other medical conditions?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["comorbidity", "chronic diseases", "physical illness"]
+  },
+  {
+    "id": 85,
+    "question": "What barriers to mental health care are identified in the report?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["lack of access", "stigma", "limited services"]
+  },
+  {
+    "id": 86,
+    "question": "How does stigma affect help-seeking behavior for depression?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["stigma", "delayed care", "discrimination"]
+  },
+  {
+    "id": 87,
+    "question": "Why does the report emphasize depression as a public health priority?",
+    "type": "direct",
+    "expected_doc_ids": [4],
+    "expected_answer_keywords": ["public health priority", "burden of disease", "global impact"]
+  },
+
+  {
+    "id": 88,
+    "question": "What is the relationship between climate change and depression prevalence?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "outside scope", "environment"]
+  },
+  {
+    "id": 89,
+    "question": "How do neural network architectures optimize image classification tasks?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["irrelevant", "computer science", "not covered"]
+  },
+  {
+    "id": 90,
+    "question": "What monetary policy tools are used by central banks to control inflation?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["outside domain", "economics", "not related"]
+  },
+
+  {
+    "id": 91,
+    "question": "How does the burden of depression compare with the burden of epilepsy described in document 03?",
+    "type": "synthesis",
+    "expected_doc_ids": [3, 4],
+    "expected_answer_keywords": ["global burden", "disability", "chronic conditions"]
+  },
+  {
+    "id": 92,
+    "question": "How do stigma and access barriers in mental health resemble those described for epilepsy care?",
+    "type": "synthesis",
+    "expected_doc_ids": [3, 4],
+    "expected_answer_keywords": ["stigma", "access to care", "treatment gap"]
+  },
+  {
+    "id": 93,
+    "question": "How do common mental disorders contribute to overall disease burden alongside cancer outcomes discussed in document 02?",
+    "type": "synthesis",
+    "expected_doc_ids": [2, 4],
+    "expected_answer_keywords": ["disease burden", "mortality", "disability"]
+  },
+  {
+    "id": 94,
+    "question": "How does integrating mental health into primary care align with hospital-based care principles from document 01?",
+    "type": "synthesis",
+    "expected_doc_ids": [1, 4],
+    "expected_answer_keywords": ["integration of care", "primary care", "guidelines"]
+  },
+  {
+    "id": 95,
+    "question": "How do social determinants influence outcomes across depression, epilepsy, and cancer?",
+    "type": "synthesis",
+    "expected_doc_ids": [2, 3, 4],
+    "expected_answer_keywords": ["social determinants", "inequalities", "health outcomes"]
+  },
+  {
+    "id": 96,
+    "question": "How does strengthening health systems reduce the combined burden of mental and neurological disorders?",
+    "type": "synthesis",
+    "expected_doc_ids": [1, 3, 4],
+    "expected_answer_keywords": ["health systems", "access", "burden reduction"]
+  },
+  {
+    "id": 97,
+    "question": "What is the primary purpose of the Global strategy and action plan on oral health 2023–2030?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["global oral health agenda", "2030", "action plan", "strategy"]
+  },
+  {
+    "id": 98,
+    "question": "Which World Health Assembly resolution initiated the renewed global oral health agenda?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["WHA74.5", "resolution on oral health", "World Health Assembly"]
+  },
+  {
+    "id": 99,
+    "question": "How is oral health defined in the report?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["mouth", "teeth", "orofacial structures", "functions", "well-being"]
+  },
+  {
+    "id": 100,
+    "question": "Approximately how many people worldwide are affected by oral diseases according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["3.5 billion", "global burden", "oral diseases"]
+  },
+  {
+    "id": 101,
+    "question": "Why are oral diseases considered largely preventable?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["preventable", "risk factors", "simple interventions"]
+  },
+  {
+    "id": 102,
+    "question": "What paradigm shift in oral health care does the report advocate?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["preventive approach", "primary health care", "curative model"]
+  },
+  {
+    "id": 103,
+    "question": "How does the strategy link oral health with universal health coverage (UHC)?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["UHC", "integration", "essential services"]
+  },
+  {
+    "id": 104,
+    "question": "What are the six guiding principles underlying the global oral health agenda?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["public health approach", "primary care integration", "people-centred"]
+  },
+  {
+    "id": 105,
+    "question": "What are the two overarching global targets of the oral health action plan?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["UHC", "reduced oral disease burden", "global targets"]
+  },
+  {
+    "id": 106,
+    "question": "What strategic objective focuses on integrating oral health into primary health care?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["strategic objective 4", "primary health care", "integration"]
+  },
+  {
+    "id": 107,
+    "question": "What role does reducing free sugar intake play in oral disease prevention?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["free sugars", "prevention", "policy measures"]
+  },
+  {
+    "id": 108,
+    "question": "Which risk factors common to noncommunicable diseases are addressed in the oral health action plan?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["tobacco", "alcohol", "sugar consumption", "NCD risk factors"]
+  },
+  {
+    "id": 109,
+    "question": "What targets are set for access to essential oral health care services by 2030?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["80%", "population", "essential oral health care"]
+  },
+  {
+    "id": 110,
+    "question": "How does the action plan address inequalities in oral health?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["equity", "life course", "vulnerable populations"]
+  },
+  {
+    "id": 111,
+    "question": "What is the role of oral health information systems in the action plan?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["monitoring", "data collection", "information systems"]
+  },
+  {
+    "id": 112,
+    "question": "Why is workforce development considered critical for improving oral health outcomes?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["health workforce", "training", "population needs"]
+  },
+  {
+    "id": 113,
+    "question": "What actions are proposed to support oral health research agendas?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["research agenda", "public health", "knowledge translation"]
+  },
+  {
+    "id": 114,
+    "question": "How does the report frame the relationship between oral health and general health?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["no health without oral health", "integral part", "general health"]
+  },
+  {
+    "id": 115,
+    "question": "What role do community-based programmes play in improving oral health?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["schools", "workplaces", "community programmes"]
+  },
+  {
+    "id": 116,
+    "question": "What is noma and how is it characterized in the report?",
+    "type": "direct",
+    "expected_doc_ids": [5],
+    "expected_answer_keywords": ["noma", "necrotizing disease", "oral tissues"]
+  },
+
+  {
+    "id": 117,
+    "question": "How do quantum computing algorithms improve cryptographic security?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "outside scope", "quantum computing"]
+  },
+  {
+    "id": 118,
+    "question": "What are the main drivers of inflation in emerging economies?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["irrelevant", "economics", "not covered"]
+  },
+  {
+    "id": 119,
+    "question": "How does plate tectonics explain earthquake distribution worldwide?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["outside domain", "geology", "not related"]
+  },
+  {
+    "id": 120,
+    "question": "What neural mechanisms underlie visual perception in mammals?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not present", "neuroscience", "irrelevant"]
+  },
+  {
+    "id": 121,
+    "question": "How are derivatives priced in modern financial markets?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["no information", "finance", "outside scope"]
+  },
+
+
+
+  
+  {
+    "id": 122,
+    "question": "How does the report define tuberculosis as a public health problem?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["tuberculosis", "infectious disease", "public health", "Mycobacterium tuberculosis"]
+  },
+  {
+    "id": 123,
+    "question": "Which population groups are most affected by tuberculosis globally?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["low- and middle-income countries", "vulnerable populations", "high burden"]
+  },
+  {
+    "id": 124,
+    "question": "What are the main modes of transmission of tuberculosis?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["airborne", "droplet nuclei", "person-to-person"]
+  },
+  {
+    "id": 125,
+    "question": "What are the most common clinical manifestations of pulmonary tuberculosis?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["chronic cough", "weight loss", "fever", "night sweats"]
+  },
+  {
+    "id": 126,
+    "question": "How does HIV infection influence the risk of developing active tuberculosis?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["HIV", "immunosuppression", "increased risk", "co-infection"]
+  },
+  {
+    "id": 127,
+    "question": "What diagnostic methods are recommended for detecting active tuberculosis?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["sputum microscopy", "Xpert MTB/RIF", "culture", "molecular tests"]
+  },
+  {
+    "id": 128,
+    "question": "What is multidrug-resistant tuberculosis (MDR-TB)?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["drug-resistant TB", "rifampicin", "isoniazid"]
+  },
+  {
+    "id": 129,
+    "question": "Which factors contribute to the emergence of drug-resistant tuberculosis?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["poor adherence", "incomplete treatment", "health system failures"]
+  },
+  {
+    "id": 130,
+    "question": "What treatment principles are emphasized for drug-susceptible tuberculosis?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["combination therapy", "standard regimen", "treatment completion"]
+  },
+  {
+    "id": 131,
+    "question": "How does the report describe the global tuberculosis treatment success rate?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["treatment success", "global rate", "outcomes"]
+  },
+  {
+    "id": 132,
+    "question": "What social determinants are associated with tuberculosis incidence?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["poverty", "overcrowding", "malnutrition"]
+  },
+  {
+    "id": 133,
+    "question": "How does tuberculosis contribute to global mortality?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["mortality", "leading infectious killer", "death burden"]
+  },
+  {
+    "id": 134,
+    "question": "What role does early diagnosis play in tuberculosis control?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["early diagnosis", "transmission reduction", "better outcomes"]
+  },
+  {
+    "id": 135,
+    "question": "What prevention strategies are highlighted for tuberculosis control?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["BCG vaccination", "infection control", "preventive therapy"]
+  },
+  {
+    "id": 136,
+    "question": "How does stigma affect tuberculosis care and treatment adherence?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["stigma", "delayed care", "non-adherence"]
+  },
+  {
+    "id": 137,
+    "question": "What challenges do health systems face in scaling up tuberculosis services?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["health system capacity", "resources", "workforce"]
+  },
+  {
+    "id": 138,
+    "question": "How is tuberculosis surveillance used to guide public health action?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["surveillance", "monitoring", "data-driven decisions"]
+  },
+  {
+    "id": 139,
+    "question": "What progress indicators are used to track global tuberculosis control efforts?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["incidence", "mortality", "treatment coverage"]
+  },
+  {
+    "id": 140,
+    "question": "How does the report describe the relationship between tuberculosis and socioeconomic inequality?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["inequality", "vulnerable populations", "social determinants"]
+  },
+  {
+    "id": 141,
+    "question": "Why is tuberculosis considered a priority within global health and NCD frameworks?",
+    "type": "direct",
+    "expected_doc_ids": [6],
+    "expected_answer_keywords": ["global priority", "public health", "health systems"]
+  },
+
+  {
+    "id": 142,
+    "question": "How does general relativity explain gravitational waves?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "physics", "outside scope"]
+  },
+  {
+    "id": 143,
+    "question": "What are the main principles of object-oriented programming?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["irrelevant", "computer science", "not covered"]
+  },
+  {
+    "id": 144,
+    "question": "How are interest rates set by central banks?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "not related", "outside domain"]
+  },
+  {
+    "id": 145,
+    "question": "What processes drive volcanic eruptions at tectonic plate boundaries?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["geology", "not mentioned", "outside context"]
+  },
+  {
+    "id": 146,
+    "question": "How does photosynthesis convert light energy into chemical energy?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["biology", "irrelevant", "not in document"]
+  },
+
+
+
+
+  {
+    "id": 147,
+    "question": "How does the report define hypertension as a health condition?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["hypertension", "high blood pressure", "chronic condition"]
+  },
+  {
+    "id": 148,
+    "question": "Why is hypertension considered a major global public health problem?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["global burden", "cardiovascular disease", "mortality"]
+  },
+  {
+    "id": 149,
+    "question": "What proportion of adults worldwide are estimated to have hypertension?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["global prevalence", "adults", "estimated"]
+  },
+  {
+    "id": 150,
+    "question": "Which regions have the highest prevalence of hypertension?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["low- and middle-income countries", "regional variation"]
+  },
+  {
+    "id": 151,
+    "question": "What are the main risk factors associated with hypertension?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["salt intake", "obesity", "physical inactivity", "alcohol"]
+  },
+  {
+    "id": 152,
+    "question": "How does hypertension contribute to cardiovascular disease outcomes?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["stroke", "heart disease", "vascular damage"]
+  },
+  {
+    "id": 153,
+    "question": "What challenges exist in the detection of hypertension globally?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["underdiagnosis", "lack of screening", "awareness"]
+  },
+  {
+    "id": 154,
+    "question": "What proportion of people with hypertension are aware of their condition?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["awareness", "diagnosed", "hypertension care gap"]
+  },
+  {
+    "id": 155,
+    "question": "How effective is treatment and control of hypertension according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["treatment", "control rates", "low control"]
+  },
+  {
+    "id": 156,
+    "question": "What role do primary health care systems play in hypertension management?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["primary health care", "early detection", "long-term management"]
+  },
+  {
+    "id": 157,
+    "question": "How does hypertension prevalence vary by age?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["age", "older adults", "increasing prevalence"]
+  },
+  {
+    "id": 158,
+    "question": "What lifestyle interventions are recommended to prevent or control hypertension?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["diet", "physical activity", "salt reduction", "lifestyle"]
+  },
+  {
+    "id": 159,
+    "question": "How does socioeconomic status influence hypertension outcomes?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["inequality", "access to care", "social determinants"]
+  },
+  {
+    "id": 160,
+    "question": "What barriers limit access to hypertension treatment in low-resource settings?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["medication availability", "health system capacity", "cost"]
+  },
+  {
+    "id": 161,
+    "question": "Why is hypertension often referred to as a 'silent killer'?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["asymptomatic", "late diagnosis", "complications"]
+  },
+  {
+    "id": 162,
+    "question": "What global targets are mentioned for improving hypertension control?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["global targets", "control rates", "population health"]
+  },
+  {
+    "id": 163,
+    "question": "How does integrating hypertension care into NCD strategies improve outcomes?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["NCD integration", "health systems", "efficiency"]
+  },
+  {
+    "id": 164,
+    "question": "What role does patient adherence play in effective hypertension management?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["adherence", "long-term treatment", "blood pressure control"]
+  },
+  {
+    "id": 165,
+    "question": "How does hypertension contribute to preventable mortality?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["preventable deaths", "cardiovascular mortality"]
+  },
+  {
+    "id": 166,
+    "question": "Why does the report emphasize population-level prevention strategies for hypertension?",
+    "type": "direct",
+    "expected_doc_ids": [7],
+    "expected_answer_keywords": ["population approach", "prevention", "risk reduction"]
+  },
+
+  {
+    "id": 167,
+    "question": "How does dark matter influence galaxy formation?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "astrophysics", "outside scope"]
+  },
+  {
+    "id": 168,
+    "question": "What are the key principles of functional programming languages?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["computer science", "irrelevant", "not covered"]
+  },
+  {
+    "id": 169,
+    "question": "How do supply chain disruptions affect global semiconductor markets?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "not related", "outside domain"]
+  },
+  {
+    "id": 170,
+    "question": "What causes supernova explosions in massive stars?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["astronomy", "not mentioned", "outside context"]
+  },
+  {
+    "id": 171,
+    "question": "How does machine learning optimize recommendation systems?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["artificial intelligence", "irrelevant", "not in document"]
+  },
+
+
+
+
+  {
+    "id": 172,
+    "question": "How does the report define diabetes as a health condition?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["diabetes", "chronic disease", "hyperglycaemia", "insulin"]
+  },
+  {
+    "id": 173,
+    "question": "Why is diabetes considered a major global public health challenge?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["global burden", "mortality", "noncommunicable disease"]
+  },
+  {
+    "id": 174,
+    "question": "Approximately how many adults worldwide are living with diabetes according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["global prevalence", "adults", "millions"]
+  },
+  {
+    "id": 175,
+    "question": "Which regions of the world carry the highest burden of diabetes?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["low- and middle-income countries", "regional burden"]
+  },
+  {
+    "id": 176,
+    "question": "What are the main types of diabetes described in the report?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["type 1 diabetes", "type 2 diabetes", "gestational diabetes"]
+  },
+  {
+    "id": 177,
+    "question": "What key risk factors are associated with type 2 diabetes?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["obesity", "physical inactivity", "unhealthy diet"]
+  },
+  {
+    "id": 178,
+    "question": "How does diabetes contribute to cardiovascular disease risk?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["cardiovascular disease", "increased risk", "complications"]
+  },
+  {
+    "id": 179,
+    "question": "What complications of diabetes are highlighted as major causes of disability?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["kidney disease", "blindness", "neuropathy", "amputation"]
+  },
+  {
+    "id": 180,
+    "question": "How does diabetes affect mortality at the global level?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["premature mortality", "death", "global impact"]
+  },
+  {
+    "id": 181,
+    "question": "What challenges exist in the early diagnosis of diabetes?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["underdiagnosis", "late detection", "screening gaps"]
+  },
+  {
+    "id": 182,
+    "question": "What proportion of people with diabetes lack access to essential care globally?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["access to care", "treatment gap", "inequity"]
+  },
+  {
+    "id": 183,
+    "question": "What role does insulin availability play in diabetes management?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["insulin access", "essential medicine", "treatment"]
+  },
+  {
+    "id": 184,
+    "question": "How does socioeconomic status influence diabetes outcomes?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["inequality", "poverty", "health outcomes"]
+  },
+  {
+    "id": 185,
+    "question": "What lifestyle interventions are recommended to prevent or delay type 2 diabetes?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["healthy diet", "physical activity", "weight control"]
+  },
+  {
+    "id": 186,
+    "question": "How does diabetes impact health systems in low-resource settings?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["health system burden", "cost", "long-term care"]
+  },
+  {
+    "id": 187,
+    "question": "What role does primary health care play in diabetes prevention and management?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["primary health care", "continuity of care", "early management"]
+  },
+  {
+    "id": 188,
+    "question": "How is diabetes linked to other noncommunicable diseases in the report?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["NCDs", "shared risk factors", "multimorbidity"]
+  },
+  {
+    "id": 189,
+    "question": "What population-level prevention strategies are emphasized for diabetes control?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["population prevention", "risk reduction", "policy measures"]
+  },
+  {
+    "id": 190,
+    "question": "Why is diabetes described as a lifelong condition requiring sustained care?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["lifelong management", "chronic care", "monitoring"]
+  },
+  {
+    "id": 191,
+    "question": "What global priorities are identified to improve diabetes outcomes by 2030?",
+    "type": "direct",
+    "expected_doc_ids": [8],
+    "expected_answer_keywords": ["global targets", "access", "prevention", "care"]
+  },
+
+  {
+    "id": 192,
+    "question": "How does quantum entanglement enable faster-than-light communication?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "physics", "outside scope"]
+  },
+  {
+    "id": 193,
+    "question": "What are the main architectural patterns used in distributed databases?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["computer science", "irrelevant", "not covered"]
+  },
+  {
+    "id": 194,
+    "question": "How do exchange rates respond to monetary tightening policies?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "outside domain", "not related"]
+  },
+  {
+    "id": 195,
+    "question": "What causes auroras in the Earth’s polar regions?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["astronomy", "not mentioned", "outside context"]
+  },
+  {
+    "id": 196,
+    "question": "How do convolutional neural networks process image data?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["artificial intelligence", "irrelevant", "not in document"]
+  },
+
+
+
+  {
+    "id": 197,
+    "question": "How does the report define vision impairment and blindness?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["vision impairment", "blindness", "visual acuity", "functional vision"]
+  },
+  {
+    "id": 198,
+    "question": "Approximately how many people worldwide are affected by vision impairment according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["global prevalence", "millions", "vision impairment"]
+  },
+  {
+    "id": 199,
+    "question": "What proportion of vision impairment cases are considered preventable or treatable?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["preventable", "treatable", "majority"]
+  },
+  {
+    "id": 200,
+    "question": "Which are the leading causes of vision impairment and blindness globally?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["uncorrected refractive errors", "cataract", "glaucoma"]
+  },
+  {
+    "id": 201,
+    "question": "How does age influence the prevalence of vision impairment?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["ageing", "older adults", "increasing prevalence"]
+  },
+  {
+    "id": 202,
+    "question": "Which populations are disproportionately affected by vision impairment?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["low- and middle-income countries", "women", "older people"]
+  },
+  {
+    "id": 203,
+    "question": "How does vision impairment impact quality of life and daily functioning?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["quality of life", "independence", "functional limitation"]
+  },
+  {
+    "id": 204,
+    "question": "What economic and social consequences of vision impairment are described?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["economic burden", "productivity loss", "social exclusion"]
+  },
+  {
+    "id": 205,
+    "question": "What role does access to eye care services play in preventing vision impairment?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["access to care", "eye health services", "prevention"]
+  },
+  {
+    "id": 206,
+    "question": "How does uncorrected refractive error contribute to the global burden of vision loss?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["refractive error", "uncorrected", "major cause"]
+  },
+  {
+    "id": 207,
+    "question": "What challenges exist in delivering eye care services in low-resource settings?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["workforce shortage", "infrastructure", "access barriers"]
+  },
+  {
+    "id": 208,
+    "question": "How does vision impairment interact with other chronic health conditions?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["comorbidity", "chronic diseases", "multimorbidity"]
+  },
+  {
+    "id": 209,
+    "question": "What preventive strategies are emphasized to reduce vision impairment globally?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["early detection", "screening", "timely treatment"]
+  },
+  {
+    "id": 210,
+    "question": "How does socioeconomic inequality influence eye health outcomes?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["inequality", "poverty", "access to care"]
+  },
+  {
+    "id": 211,
+    "question": "What role do primary health care systems play in improving eye health?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["primary health care", "integration", "early referral"]
+  },
+  {
+    "id": 212,
+    "question": "How does vision impairment affect educational outcomes, particularly in children?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["education", "learning outcomes", "children"]
+  },
+  {
+    "id": 213,
+    "question": "What global targets or priorities are identified for improving eye health?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["global targets", "eye care coverage", "2030"]
+  },
+  {
+    "id": 214,
+    "question": "How does the report link vision impairment to broader development goals?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["sustainable development", "economic growth", "equity"]
+  },
+  {
+    "id": 215,
+    "question": "Why is vision impairment framed as both a health and development issue?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["health issue", "development issue", "social impact"]
+  },
+  {
+    "id": 216,
+    "question": "How does strengthening eye health systems reduce preventable vision loss?",
+    "type": "direct",
+    "expected_doc_ids": [9],
+    "expected_answer_keywords": ["health systems strengthening", "prevention", "access"]
+  },
+
+  {
+    "id": 217,
+    "question": "How does quantum field theory describe particle interactions?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "physics", "outside scope"]
+  },
+  {
+    "id": 218,
+    "question": "What are the core components of a microservices software architecture?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["computer science", "irrelevant", "not covered"]
+  },
+  {
+    "id": 219,
+    "question": "How do central banks use quantitative easing to stimulate economies?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "outside domain", "not related"]
+  },
+  {
+    "id": 220,
+    "question": "What physical processes power active galactic nuclei?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["astronomy", "not mentioned", "outside context"]
+  },
+  {
+    "id": 221,
+    "question": "How do transformers improve natural language processing models?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["artificial intelligence", "irrelevant", "not in document"]
+  },
+
+
+
+  {
+    "id": 222,
+    "question": "What is the primary objective of antiretroviral therapy according to the guide?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["viral suppression", "HIV replication", "disease progression"]
+  },
+  {
+    "id": 223,
+    "question": "How does antiretroviral therapy affect HIV viral load?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["viral load reduction", "suppression", "undetectable"]
+  },
+  {
+    "id": 224,
+    "question": "Which classes of antiretroviral drugs are described in the guide?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["NRTI", "NNRTI", "protease inhibitors", "integrase inhibitors"]
+  },
+  {
+    "id": 225,
+    "question": "What criteria are recommended for initiating antiretroviral therapy?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["early initiation", "all people living with HIV", "regardless of CD4"]
+  },
+  {
+    "id": 226,
+    "question": "What first-line antiretroviral regimens are recommended?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["first-line regimen", "combination therapy", "preferred regimen"]
+  },
+  {
+    "id": 227,
+    "question": "Why is combination antiretroviral therapy preferred over monotherapy?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["drug resistance", "efficacy", "viral suppression"]
+  },
+  {
+    "id": 228,
+    "question": "How does poor adherence affect antiretroviral treatment outcomes?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["non-adherence", "treatment failure", "drug resistance"]
+  },
+  {
+    "id": 229,
+    "question": "What are the most common side effects associated with antiretroviral therapy?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["side effects", "toxicity", "adverse reactions"]
+  },
+  {
+    "id": 230,
+    "question": "How is treatment failure defined in patients receiving antiretroviral therapy?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["virological failure", "viral rebound", "lack of suppression"]
+  },
+  {
+    "id": 231,
+    "question": "What monitoring strategies are recommended during antiretroviral treatment?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["viral load monitoring", "clinical monitoring", "laboratory tests"]
+  },
+  {
+    "id": 232,
+    "question": "How does antiretroviral therapy reduce HIV-related morbidity and mortality?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["reduced mortality", "immune recovery", "disease control"]
+  },
+  {
+    "id": 233,
+    "question": "What considerations are highlighted for antiretroviral therapy in pregnant women?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["pregnancy", "PMTCT", "maternal health"]
+  },
+  {
+    "id": 234,
+    "question": "How does antiretroviral therapy contribute to the prevention of HIV transmission?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["treatment as prevention", "U=U", "reduced transmission"]
+  },
+  {
+    "id": 235,
+    "question": "What challenges to antiretroviral therapy delivery are identified in low-resource settings?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["access", "supply chain", "health system barriers"]
+  },
+  {
+    "id": 236,
+    "question": "How does drug resistance develop in the context of HIV treatment?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["drug resistance", "mutation", "incomplete suppression"]
+  },
+  {
+    "id": 237,
+    "question": "What second-line treatment options are recommended after first-line failure?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["second-line therapy", "regimen switch", "drug resistance"]
+  },
+  {
+    "id": 238,
+    "question": "How is adherence support addressed in the antiretroviral therapy guide?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["adherence support", "counselling", "patient education"]
+  },
+  {
+    "id": 239,
+    "question": "What role do health care workers play in optimizing antiretroviral treatment outcomes?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["healthcare workers", "clinical management", "follow-up"]
+  },
+  {
+    "id": 240,
+    "question": "How does long-term antiretroviral therapy impact quality of life for people living with HIV?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["quality of life", "long-term treatment", "chronic management"]
+  },
+  {
+    "id": 241,
+    "question": "Why is early and sustained antiretroviral therapy emphasized as a global health priority?",
+    "type": "direct",
+    "expected_doc_ids": [10],
+    "expected_answer_keywords": ["global priority", "HIV control", "public health impact"]
+  },
+
+  {
+    "id": 242,
+    "question": "How do black holes evaporate according to Hawking radiation theory?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "physics", "outside scope"]
+  },
+  {
+    "id": 243,
+    "question": "What are the advantages of graph databases over relational databases?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["computer science", "irrelevant", "not covered"]
+  },
+  {
+    "id": 244,
+    "question": "How do trade tariffs influence global supply chains?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "outside domain", "not related"]
+  },
+  {
+    "id": 245,
+    "question": "What causes gamma-ray bursts in distant galaxies?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["astronomy", "not mentioned", "outside context"]
+  },
+  {
+    "id": 246,
+    "question": "How do reinforcement learning agents learn optimal policies?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["artificial intelligence", "irrelevant", "not in document"]
+  },
+
+
+
+  {
+    "id": 247,
+    "question": "How does the report define malaria as a public health problem?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["malaria", "parasitic disease", "public health", "Plasmodium"]
+  },
+  {
+    "id": 248,
+    "question": "Approximately how many malaria cases are reported globally according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["global cases", "millions", "malaria burden"]
+  },
+  {
+    "id": 249,
+    "question": "How many malaria-related deaths are estimated worldwide each year?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["malaria deaths", "mortality", "global estimate"]
+  },
+  {
+    "id": 250,
+    "question": "Which regions of the world bear the highest burden of malaria?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["sub-Saharan Africa", "high burden regions"]
+  },
+  {
+    "id": 251,
+    "question": "Which population groups are most vulnerable to malaria infection?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["children under five", "pregnant women", "vulnerable populations"]
+  },
+  {
+    "id": 252,
+    "question": "What are the primary modes of malaria transmission described in the report?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["Anopheles mosquitoes", "vector-borne", "transmission"]
+  },
+  {
+    "id": 253,
+    "question": "What symptoms are commonly associated with uncomplicated malaria?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["fever", "chills", "headache", "flu-like symptoms"]
+  },
+  {
+    "id": 254,
+    "question": "What factors contribute to severe malaria and increased mortality risk?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["delayed treatment", "severe malaria", "organ failure"]
+  },
+  {
+    "id": 255,
+    "question": "What diagnostic tools are recommended for confirming malaria infection?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["rapid diagnostic tests", "microscopy", "laboratory confirmation"]
+  },
+  {
+    "id": 256,
+    "question": "What treatment strategies are recommended for uncomplicated malaria?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["artemisinin-based combination therapy", "ACT", "treatment"]
+  },
+  {
+    "id": 257,
+    "question": "How does drug resistance threaten malaria control efforts?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["drug resistance", "treatment failure", "emerging resistance"]
+  },
+  {
+    "id": 258,
+    "question": "What prevention measures are highlighted to reduce malaria transmission?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["insecticide-treated nets", "indoor residual spraying", "prevention"]
+  },
+  {
+    "id": 259,
+    "question": "How does malaria affect maternal and child health outcomes?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["maternal health", "low birth weight", "child mortality"]
+  },
+  {
+    "id": 260,
+    "question": "What role does early diagnosis and treatment play in malaria control?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["early diagnosis", "prompt treatment", "mortality reduction"]
+  },
+  {
+    "id": 261,
+    "question": "What challenges do health systems face in scaling up malaria interventions?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["health system capacity", "funding gaps", "logistics"]
+  },
+  {
+    "id": 262,
+    "question": "How has progress in malaria control changed in recent years according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["stalled progress", "setbacks", "recent trends"]
+  },
+  {
+    "id": 263,
+    "question": "What role does surveillance play in malaria elimination strategies?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["surveillance", "monitoring", "targeted response"]
+  },
+  {
+    "id": 264,
+    "question": "How do socioeconomic factors influence malaria risk and outcomes?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["poverty", "access to care", "inequality"]
+  },
+  {
+    "id": 265,
+    "question": "What global targets or milestones are mentioned for malaria control or elimination?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["global targets", "elimination goals", "WHO strategy"]
+  },
+  {
+    "id": 266,
+    "question": "Why is malaria considered a preventable and treatable disease?",
+    "type": "direct",
+    "expected_doc_ids": [11],
+    "expected_answer_keywords": ["preventable", "treatable", "effective interventions"]
+  },
+
+  {
+    "id": 267,
+    "question": "How do gravitational waves propagate through spacetime?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "physics", "outside scope"]
+  },
+  {
+    "id": 268,
+    "question": "What are the advantages of containerization in cloud computing?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["computer science", "irrelevant", "not covered"]
+  },
+  {
+    "id": 269,
+    "question": "How do fiscal deficits influence national debt sustainability?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "outside domain", "not related"]
+  },
+  {
+    "id": 270,
+    "question": "What physical mechanisms drive solar flares?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["astronomy", "not mentioned", "outside context"]
+  },
+  {
+    "id": 271,
+    "question": "How do large language models perform next-token prediction?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["artificial intelligence", "irrelevant", "not in document"]
+  },
+
+
+
+  {
+    "id": 272,
+    "question": "What is meant by total cardiovascular disease (CVD) risk according to the booklet?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["total CVD risk", "probability", "fatal and non-fatal events", "10 years"]
+  },
+  {
+    "id": 273,
+    "question": "Why do multiple cardiovascular risk factors increase overall CVD risk more than individually?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["synergistic effect", "multiple risk factors", "greater than additive"]
+  },
+  {
+    "id": 274,
+    "question": "Which modifiable risk factors for cardiovascular disease are listed in the booklet?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["smoking", "high blood pressure", "physical inactivity", "obesity", "cholesterol"]
+  },
+  {
+    "id": 275,
+    "question": "Which non-modifiable risk factors for cardiovascular disease are identified?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["age", "gender", "genetic factors", "race", "ethnicity"]
+  },
+  {
+    "id": 276,
+    "question": "For which population groups is assessment of total CVD risk recommended?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["age over 40", "smokers", "hypertension", "diabetes", "family history"]
+  },
+  {
+    "id": 277,
+    "question": "What is the purpose of cardiovascular disease risk prediction?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["risk prediction", "identify individuals", "future CVD events"]
+  },
+  {
+    "id": 278,
+    "question": "What parameters are used in the WHO laboratory-based CVD risk assessment?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["age", "gender", "smoking", "blood pressure", "diabetes", "cholesterol"]
+  },
+  {
+    "id": 279,
+    "question": "Which parameters are used in the WHO non-laboratory-based CVD risk assessment?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["age", "gender", "smoking", "blood pressure", "BMI"]
+  },
+  {
+    "id": 280,
+    "question": "Why are non-laboratory-based CVD risk charts useful in low-resource settings?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["limited lab access", "cost", "pre-screening", "two-stage process"]
+  },
+  {
+    "id": 281,
+    "question": "How is overall CVD risk expressed in the WHO risk charts?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["percentage", "probability", "10-year risk"]
+  },
+  {
+    "id": 282,
+    "question": "What does a CVD risk of 15% indicate for an individual?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["15%", "probability", "fatal or non-fatal event", "10 years"]
+  },
+  {
+    "id": 283,
+    "question": "What lifestyle counselling is recommended for individuals with CVD risk below 5%?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["diet", "physical activity", "smoking cessation", "avoid alcohol"]
+  },
+  {
+    "id": 284,
+    "question": "At what blood pressure threshold is drug treatment considered for CVD risk below 10%?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["persistent BP", "140/90 mmHg", "antihypertensive drugs"]
+  },
+  {
+    "id": 285,
+    "question": "Which medications are recommended for individuals with CVD risk greater than 20%?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["antihypertensive drugs", "statins", "lipid-lowering"]
+  },
+  {
+    "id": 286,
+    "question": "How frequently should follow-up occur for individuals with high CVD risk?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["every 3 months", "follow-up", "risk management"]
+  },
+  {
+    "id": 287,
+    "question": "How is body mass index (BMI) calculated according to the booklet?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["weight", "height squared", "kg/m2"]
+  },
+  {
+    "id": 288,
+    "question": "What BMI values define overweight and obesity in adults?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["BMI ≥25", "overweight", "BMI ≥30", "obesity"]
+  },
+  {
+    "id": 289,
+    "question": "What criteria are used for diagnosing hypertension?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["two visits", "systolic ≥140", "diastolic ≥90"]
+  },
+  {
+    "id": 290,
+    "question": "Which diagnostic thresholds are used to identify diabetes?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["fasting glucose", "HbA1c 6.5%", "plasma glucose"]
+  },
+  {
+    "id": 291,
+    "question": "What lifestyle actions are promoted to reduce cardiovascular disease risk?",
+    "type": "direct",
+    "expected_doc_ids": [12],
+    "expected_answer_keywords": ["avoid alcohol", "be physically active", "cut salt and sugar", "quit tobacco"]
+  },
+
+  {
+    "id": 292,
+    "question": "How do blockchain consensus mechanisms secure decentralized networks?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "computer science", "outside scope"]
+  },
+  {
+    "id": 293,
+    "question": "What mechanisms drive plate tectonics and continental drift?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["geology", "irrelevant", "not covered"]
+  },
+  {
+    "id": 294,
+    "question": "How do neural networks perform feature extraction in image recognition?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["artificial intelligence", "outside domain", "not related"]
+  },
+  {
+    "id": 295,
+    "question": "What causes inflationary spirals in macroeconomic systems?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "not discussed", "outside scope"]
+  },
+  {
+    "id": 296,
+    "question": "How does stellar nucleosynthesis create heavy elements in stars?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["astronomy", "irrelevant", "not in document"]
+  },
+
+
+
+
+  {
+    "id": 297,
+    "question": "What is the primary purpose of the report on Children and Armed Conflict?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["children and armed conflict", "protection", "violations", "monitoring"]
+  },
+  {
+    "id": 298,
+    "question": "Which categories of grave violations against children are monitored by the United Nations?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["killing", "maiming", "recruitment", "sexual violence", "abductions", "attacks on schools"]
+  },
+  {
+    "id": 299,
+    "question": "What age group is covered under the definition of children in armed conflict?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["under 18", "children", "international law"]
+  },
+  {
+    "id": 300,
+    "question": "How does armed conflict affect children's access to education?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["attacks on schools", "disrupted education", "access barriers"]
+  },
+  {
+    "id": 301,
+    "question": "What impact does armed conflict have on children's access to health care?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["attacks on health facilities", "limited access", "health services"]
+  },
+  {
+    "id": 302,
+    "question": "What forms of recruitment and use of children by armed forces are described?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["child soldiers", "armed groups", "forced recruitment"]
+  },
+  {
+    "id": 303,
+    "question": "How does the report describe sexual violence against children in conflict settings?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["sexual violence", "rape", "exploitation", "conflict-related"]
+  },
+  {
+    "id": 304,
+    "question": "What are the main consequences of killing and maiming of children during armed conflict?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["death", "injury", "long-term disability"]
+  },
+  {
+    "id": 305,
+    "question": "What role do explosive weapons play in child casualties according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["explosive weapons", "urban areas", "civilian harm"]
+  },
+  {
+    "id": 306,
+    "question": "How does displacement caused by armed conflict affect children?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["displacement", "refugees", "loss of protection"]
+  },
+  {
+    "id": 307,
+    "question": "What mechanisms are used by the UN to monitor and report violations against children?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["monitoring and reporting mechanism", "MRM", "UN system"]
+  },
+  {
+    "id": 308,
+    "question": "What obligations do parties to conflict have under international humanitarian law regarding children?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["international humanitarian law", "protection", "legal obligations"]
+  },
+  {
+    "id": 309,
+    "question": "How does the report address accountability for grave violations against children?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["accountability", "justice", "end impunity"]
+  },
+  {
+    "id": 310,
+    "question": "What preventive measures are recommended to reduce violations against children?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["prevention", "protection measures", "early warning"]
+  },
+  {
+    "id": 311,
+    "question": "How does armed conflict affect children's mental health and psychosocial well-being?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["mental health", "psychological trauma", "psychosocial impact"]
+  },
+  {
+    "id": 312,
+    "question": "What role do peacekeeping missions play in protecting children in armed conflict?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["peacekeeping", "child protection advisers", "monitoring"]
+  },
+  {
+    "id": 313,
+    "question": "How are attacks on humanitarian access affecting children according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["humanitarian access", "aid delivery", "restrictions"]
+  },
+  {
+    "id": 314,
+    "question": "What long-term developmental impacts of armed conflict on children are highlighted?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["long-term impact", "development", "lost opportunities"]
+  },
+  {
+    "id": 315,
+    "question": "How does the report emphasize the importance of reintegration for children affected by conflict?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["reintegration", "rehabilitation", "social inclusion"]
+  },
+  {
+    "id": 316,
+    "question": "Why is the protection of children framed as a priority in international peace and security?",
+    "type": "direct",
+    "expected_doc_ids": [13],
+    "expected_answer_keywords": ["international peace", "security", "children protection"]
+  },
+
+  {
+    "id": 317,
+    "question": "How does quantum chromodynamics explain the behavior of quarks?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "physics", "outside scope"]
+  },
+  {
+    "id": 318,
+    "question": "What are the main design patterns used in software engineering?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["computer science", "irrelevant", "not covered"]
+  },
+  {
+    "id": 319,
+    "question": "How do monetary supply shocks influence inflation expectations?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "outside domain", "not related"]
+  },
+  {
+    "id": 320,
+    "question": "What causes solar wind interactions with planetary magnetospheres?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["astronomy", "not mentioned", "outside context"]
+  },
+  {
+    "id": 321,
+    "question": "How do deep reinforcement learning agents optimize reward functions?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["artificial intelligence", "irrelevant", "not in document"]
+  },
+
+
+
+  {
+    "id": 322,
+    "question": "What is the main objective of the study on cardiovascular disease risk factors among emerging adults in college?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["cardiovascular risk factors", "emerging adults", "college students", "prevalence"]
+  },
+  {
+    "id": 323,
+    "question": "How are emerging adults defined in the context of this study?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["emerging adulthood", "ages 18-25", "young adults"]
+  },
+  {
+    "id": 324,
+    "question": "Which cardiovascular disease risk factors are most commonly observed among college students?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["physical inactivity", "poor diet", "overweight", "smoking"]
+  },
+  {
+    "id": 325,
+    "question": "What dietary behaviors are associated with increased cardiovascular risk in the study population?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["high fat diet", "low fruit intake", "low vegetable intake"]
+  },
+  {
+    "id": 326,
+    "question": "How prevalent is physical inactivity among emerging adults in college according to the study?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["physical inactivity", "prevalence", "sedentary behavior"]
+  },
+  {
+    "id": 327,
+    "question": "What proportion of participants were classified as overweight or obese?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["overweight", "obesity", "BMI", "prevalence"]
+  },
+  {
+    "id": 328,
+    "question": "How does tobacco use contribute to cardiovascular risk among college students?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["smoking", "tobacco use", "cardiovascular risk"]
+  },
+  {
+    "id": 329,
+    "question": "What role does alcohol consumption play in cardiovascular risk in emerging adults?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["alcohol consumption", "binge drinking", "risk behavior"]
+  },
+  {
+    "id": 330,
+    "question": "How are stress levels linked to cardiovascular disease risk in the study?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["stress", "psychosocial factors", "cardiovascular risk"]
+  },
+  {
+    "id": 331,
+    "question": "What gender differences in cardiovascular risk factors are identified among college students?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["gender differences", "male", "female", "risk factors"]
+  },
+  {
+    "id": 332,
+    "question": "How does family history influence cardiovascular risk in emerging adults?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["family history", "genetic risk", "cardiovascular disease"]
+  },
+  {
+    "id": 333,
+    "question": "What awareness do college students have regarding their cardiovascular risk status?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["risk awareness", "perceived risk", "knowledge"]
+  },
+  {
+    "id": 334,
+    "question": "How do lifestyle behaviors cluster to increase cardiovascular disease risk in emerging adults?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["behavior clustering", "multiple risk factors", "lifestyle"]
+  },
+  {
+    "id": 335,
+    "question": "What preventive opportunities are identified for reducing cardiovascular risk in college populations?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["prevention", "early intervention", "health promotion"]
+  },
+  {
+    "id": 336,
+    "question": "How does the transition to college life influence health behaviors related to cardiovascular risk?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["transition", "college environment", "behavior change"]
+  },
+  {
+    "id": 337,
+    "question": "What measurement tools are used to assess cardiovascular risk factors in the study?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["survey", "self-reported data", "BMI measurement"]
+  },
+  {
+    "id": 338,
+    "question": "How does socioeconomic status relate to cardiovascular risk factors among college students?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["socioeconomic status", "health disparities", "risk factors"]
+  },
+  {
+    "id": 339,
+    "question": "What limitations of the study are acknowledged by the authors?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["cross-sectional design", "self-report bias", "limitations"]
+  },
+  {
+    "id": 340,
+    "question": "Why is emerging adulthood considered a critical period for cardiovascular disease prevention?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["critical period", "early prevention", "long-term risk"]
+  },
+  {
+    "id": 341,
+    "question": "What recommendations are made to universities to reduce cardiovascular risk among students?",
+    "type": "direct",
+    "expected_doc_ids": [14],
+    "expected_answer_keywords": ["campus interventions", "health programs", "policy changes"]
+  },
+
+  {
+    "id": 342,
+    "question": "How do neutrino oscillations provide evidence for physics beyond the Standard Model?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "physics", "outside scope"]
+  },
+  {
+    "id": 343,
+    "question": "What are the advantages of event-driven architectures in distributed systems?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["computer science", "irrelevant", "not covered"]
+  },
+  {
+    "id": 344,
+    "question": "How do fiscal stimulus packages affect long-term economic growth?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "outside domain", "not related"]
+  },
+  {
+    "id": 345,
+    "question": "What processes generate solar neutrinos inside the Sun?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["astronomy", "not mentioned", "outside context"]
+  },
+  {
+    "id": 346,
+    "question": "How do large multimodal models integrate vision and language?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["artificial intelligence", "irrelevant", "not in document"]
+  },
+
+
+
+
+  {
+    "id": 347,
+    "question": "What is the purpose of the WHO Model List of Essential Medicines for mental health?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["essential medicines", "mental health", "priority needs", "public health"]
+  },
+  {
+    "id": 348,
+    "question": "How does the WHO define an essential medicine in the context of mental health care?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["efficacy", "safety", "cost-effectiveness", "public health relevance"]
+  },
+  {
+    "id": 349,
+    "question": "Which categories of mental health conditions are covered by the essential medicines list?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["depression", "psychosis", "bipolar disorder", "anxiety", "epilepsy"]
+  },
+  {
+    "id": 350,
+    "question": "Which antidepressant medicines are included as essential according to the list?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["amitriptyline", "fluoxetine", "antidepressants"]
+  },
+  {
+    "id": 351,
+    "question": "Which antipsychotic medicines are listed as essential for the treatment of psychotic disorders?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["haloperidol", "chlorpromazine", "antipsychotics"]
+  },
+  {
+    "id": 352,
+    "question": "What role do mood stabilizers play in the WHO essential medicines list?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["mood stabilizers", "bipolar disorder", "lithium"]
+  },
+  {
+    "id": 353,
+    "question": "Which medicines are recommended for the management of bipolar disorder?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["lithium", "valproic acid", "bipolar disorder"]
+  },
+  {
+    "id": 354,
+    "question": "How are anxiolytic medicines addressed in the WHO essential medicines list?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["anxiety disorders", "benzodiazepines", "short-term use"]
+  },
+  {
+    "id": 355,
+    "question": "What considerations are highlighted regarding the safety of psychotropic medicines?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["adverse effects", "monitoring", "safe use"]
+  },
+  {
+    "id": 356,
+    "question": "Why is lithium included in the essential medicines list despite its need for monitoring?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["effectiveness", "bipolar disorder", "risk-benefit"]
+  },
+  {
+    "id": 357,
+    "question": "How does the essential medicines list support universal health coverage for mental health?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["universal health coverage", "access", "affordability"]
+  },
+  {
+    "id": 358,
+    "question": "What role does cost-effectiveness play in selecting mental health medicines for the list?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["cost-effectiveness", "resource allocation", "public health"]
+  },
+  {
+    "id": 359,
+    "question": "How does the list address treatment of mental health conditions in low-resource settings?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["low-resource settings", "availability", "essential treatment"]
+  },
+  {
+    "id": 360,
+    "question": "What guidance is provided on the rational use of psychotropic medicines?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["rational use", "appropriate prescribing", "monitoring"]
+  },
+  {
+    "id": 361,
+    "question": "How does the WHO essential medicines list support integration of mental health into primary care?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["primary care", "integration", "mental health services"]
+  },
+  {
+    "id": 362,
+    "question": "Which medicines are listed for the management of epilepsy within the mental health section?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["phenobarbital", "carbamazepine", "antiepileptic drugs"]
+  },
+  {
+    "id": 363,
+    "question": "What updates or changes to mental health medicines are reflected in the 2023 list?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["2023 update", "revisions", "evidence-based changes"]
+  },
+  {
+    "id": 364,
+    "question": "How does the list address issues of equity and access to mental health medicines?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["equity", "access", "essential medicines"]
+  },
+  {
+    "id": 365,
+    "question": "Why are some newer psychotropic medicines not included in the essential medicines list?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["limited evidence", "cost", "comparative effectiveness"]
+  },
+  {
+    "id": 366,
+    "question": "How is the essential medicines list intended to guide national mental health policies?",
+    "type": "direct",
+    "expected_doc_ids": [15],
+    "expected_answer_keywords": ["national policy", "medicine selection", "health systems"]
+  },
+
+  {
+    "id": 367,
+    "question": "How does string theory attempt to unify fundamental forces of nature?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "physics", "outside scope"]
+  },
+  {
+    "id": 368,
+    "question": "What are the benefits of serverless computing architectures?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["computer science", "irrelevant", "not covered"]
+  },
+  {
+    "id": 369,
+    "question": "How do interest rate hikes influence foreign exchange markets?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "outside domain", "not related"]
+  },
+  {
+    "id": 370,
+    "question": "What nuclear fusion reactions power main-sequence stars?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["astronomy", "not mentioned", "outside context"]
+  },
+  {
+    "id": 371,
+    "question": "How do generative adversarial networks learn data distributions?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["artificial intelligence", "irrelevant", "not in document"]
+  },
+
+
+
+
+
+
+  {
+    "id": 372,
+    "question": "What is the main objective of the WHO Global Action Plan for the Prevention and Control of Noncommunicable Diseases?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["noncommunicable diseases", "global action plan", "prevention", "control"]
+  },
+  {
+    "id": 373,
+    "question": "Which major noncommunicable diseases are targeted by the action plan?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["cardiovascular diseases", "cancer", "diabetes", "chronic respiratory diseases"]
+  },
+  {
+    "id": 374,
+    "question": "What is the global mortality burden attributed to noncommunicable diseases according to the plan?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["mortality", "global burden", "premature deaths", "NCDs"]
+  },
+  {
+    "id": 375,
+    "question": "Which modifiable risk factors are identified as priorities in the prevention of NCDs?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["tobacco use", "harmful use of alcohol", "unhealthy diet", "physical inactivity"]
+  },
+  {
+    "id": 376,
+    "question": "What population-level interventions are recommended to reduce NCD risk factors?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["policy measures", "regulation", "health promotion", "population-wide"]
+  },
+  {
+    "id": 377,
+    "question": "How does the action plan address the prevention of premature NCD mortality?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["premature mortality", "early prevention", "risk reduction"]
+  },
+  {
+    "id": 378,
+    "question": "What role do health systems play in the management of noncommunicable diseases?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["health systems strengthening", "primary health care", "continuity of care"]
+  },
+  {
+    "id": 379,
+    "question": "How does the action plan promote early detection and treatment of NCDs?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["early detection", "screening", "timely treatment"]
+  },
+  {
+    "id": 380,
+    "question": "What targets are set for reducing premature deaths from noncommunicable diseases?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["global targets", "25 by 25", "mortality reduction"]
+  },
+  {
+    "id": 381,
+    "question": "How does the plan address inequities in the burden of noncommunicable diseases?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["health inequities", "low- and middle-income countries", "vulnerable populations"]
+  },
+  {
+    "id": 382,
+    "question": "What surveillance and monitoring mechanisms are proposed for tracking NCD trends?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["surveillance", "monitoring", "data collection", "indicators"]
+  },
+  {
+    "id": 383,
+    "question": "How does the action plan emphasize the role of multisectoral action in NCD prevention?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["multisectoral action", "whole-of-government", "policy coherence"]
+  },
+  {
+    "id": 384,
+    "question": "What role is assigned to community engagement in preventing noncommunicable diseases?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["community engagement", "health literacy", "behavior change"]
+  },
+  {
+    "id": 385,
+    "question": "How does the plan link noncommunicable diseases with sustainable development goals?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["sustainable development goals", "SDGs", "development agenda"]
+  },
+  {
+    "id": 386,
+    "question": "What actions are proposed to reduce tobacco use as a major NCD risk factor?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["tobacco control", "WHO FCTC", "policy measures"]
+  },
+  {
+    "id": 387,
+    "question": "How does the action plan address unhealthy diets and nutrition-related risks?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["unhealthy diet", "salt reduction", "sugar intake", "nutrition policies"]
+  },
+  {
+    "id": 388,
+    "question": "What strategies are recommended to promote physical activity at the population level?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["physical activity", "active living", "urban planning"]
+  },
+  {
+    "id": 389,
+    "question": "How does the plan encourage access to essential medicines for NCD management?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["essential medicines", "access", "affordability"]
+  },
+  {
+    "id": 390,
+    "question": "Why are noncommunicable diseases framed as a major economic and social challenge?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["economic burden", "productivity loss", "social impact"]
+  },
+  {
+    "id": 391,
+    "question": "What role does international cooperation play in the implementation of the NCD action plan?",
+    "type": "direct",
+    "expected_doc_ids": [16],
+    "expected_answer_keywords": ["international cooperation", "global partnership", "technical support"]
+  },
+
+  {
+    "id": 392,
+    "question": "How does quantum decoherence affect the stability of qubits in quantum computers?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "quantum physics", "outside scope"]
+  },
+  {
+    "id": 393,
+    "question": "What are the main advantages of edge computing in IoT systems?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["computer science", "irrelevant", "not covered"]
+  },
+  {
+    "id": 394,
+    "question": "How do changes in interest rates influence housing markets?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "outside domain", "not related"]
+  },
+  {
+    "id": 395,
+    "question": "What processes trigger coronal mass ejections from the Sun?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["astronomy", "not mentioned", "outside context"]
+  },
+  {
+    "id": 396,
+    "question": "How do diffusion models generate high-quality synthetic images?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["artificial intelligence", "irrelevant", "not in document"]
+  },
+
+
+
+
+
+  {
+    "id": 397,
+    "question": "How does the WHO report define hearing loss as a public health issue?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["hearing loss", "public health", "auditory impairment"]
+  },
+  {
+    "id": 398,
+    "question": "Approximately how many people worldwide are affected by disabling hearing loss according to the report?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["global prevalence", "disabling hearing loss", "millions"]
+  },
+  {
+    "id": 399,
+    "question": "Which age groups are most affected by hearing loss globally?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["older adults", "children", "age-related hearing loss"]
+  },
+  {
+    "id": 400,
+    "question": "What proportion of hearing loss cases are considered preventable?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["preventable", "early intervention", "risk reduction"]
+  },
+  {
+    "id": 401,
+    "question": "What are the main causes of hearing loss identified in the report?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["noise exposure", "infections", "ageing", "ototoxic drugs"]
+  },
+  {
+    "id": 402,
+    "question": "How does unaddressed hearing loss impact quality of life and social participation?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["social isolation", "communication difficulties", "quality of life"]
+  },
+  {
+    "id": 403,
+    "question": "What economic consequences of unaddressed hearing loss are described?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["economic burden", "productivity loss", "health system costs"]
+  },
+  {
+    "id": 404,
+    "question": "How does hearing loss affect language development and education outcomes in children?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["language development", "education", "learning outcomes"]
+  },
+  {
+    "id": 405,
+    "question": "What role does early detection play in preventing the consequences of hearing loss?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["early detection", "screening", "early intervention"]
+  },
+  {
+    "id": 406,
+    "question": "Which screening strategies are recommended for hearing loss across the life course?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["newborn screening", "school screening", "adult screening"]
+  },
+  {
+    "id": 407,
+    "question": "What barriers to hearing care access are highlighted in low- and middle-income countries?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["access barriers", "lack of services", "cost", "workforce shortage"]
+  },
+  {
+    "id": 408,
+    "question": "How does stigma influence help-seeking behavior for hearing loss?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["stigma", "delayed care", "social attitudes"]
+  },
+  {
+    "id": 409,
+    "question": "What interventions are recommended to prevent noise-induced hearing loss?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["noise regulation", "safe listening", "hearing protection"]
+  },
+  {
+    "id": 410,
+    "question": "How are hearing aids and assistive technologies addressed in the report?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["hearing aids", "assistive technologies", "accessibility"]
+  },
+  {
+    "id": 411,
+    "question": "What role do primary health care systems play in hearing loss prevention and management?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["primary health care", "integration", "early management"]
+  },
+  {
+    "id": 412,
+    "question": "How does hearing loss interact with other chronic health conditions?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["comorbidity", "chronic diseases", "multimorbidity"]
+  },
+  {
+    "id": 413,
+    "question": "What strategies are proposed to strengthen hearing care services globally?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["health system strengthening", "workforce training", "service delivery"]
+  },
+  {
+    "id": 414,
+    "question": "How does unaddressed hearing loss contribute to health inequities?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["inequity", "vulnerable populations", "access gaps"]
+  },
+  {
+    "id": 415,
+    "question": "What global targets or priorities are identified to improve hearing care by 2030?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["global targets", "2030", "hearing care coverage"]
+  },
+  {
+    "id": 416,
+    "question": "Why is hearing loss framed as both a health and development issue in the report?",
+    "type": "direct",
+    "expected_doc_ids": [17],
+    "expected_answer_keywords": ["development issue", "education", "employment", "social inclusion"]
+  },
+
+  {
+    "id": 417,
+    "question": "How does quantum tunneling enable particles to cross potential barriers?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "physics", "outside scope"]
+  },
+  {
+    "id": 418,
+    "question": "What are the benefits of using graph neural networks in recommendation systems?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["artificial intelligence", "irrelevant", "not covered"]
+  },
+  {
+    "id": 419,
+    "question": "How do central banks use forward guidance to influence markets?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "outside domain", "not related"]
+  },
+  {
+    "id": 420,
+    "question": "What mechanisms cause stellar supernova explosions?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["astronomy", "not mentioned", "outside context"]
+  },
+  {
+    "id": 421,
+    "question": "How do large-scale diffusion models learn probability distributions?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["machine learning", "irrelevant", "not in document"]
+  },
+
+
+
+
+
+
+
+  {
+    "id": 422,
+    "question": "What clinical problem primarily motivates the development of endoscopic ultrasound–guided vascular therapy?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["gastroesophageal variceal bleeding", "portal hypertension", "life-threatening"]
+  },
+  {
+    "id": 423,
+    "question": "Why has endoscopic ultrasound evolved from a diagnostic tool to a therapeutic modality?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["real-time imaging", "vascular access", "minimally invasive"]
+  },
+  {
+    "id": 424,
+    "question": "What advantages does EUS-guided vascular therapy have over conventional endoscopic techniques?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["targeted therapy", "real-time Doppler", "reduced complications"]
+  },
+  {
+    "id": 425,
+    "question": "Which vascular structures can be accessed using EUS-guided interventions?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["portal vein", "hepatic vein", "celiac axis", "mesenteric vessels"]
+  },
+  {
+    "id": 426,
+    "question": "What is the reported annual bleeding rate for gastroesophageal varices?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["5–15%", "annual bleeding rate", "variceal bleeding"]
+  },
+  {
+    "id": 427,
+    "question": "How does endoscopic ultrasound help assess bleeding risk in esophageal varices?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["periesophageal veins", "perforating veins", "bleeding risk"]
+  },
+  {
+    "id": 428,
+    "question": "What is Sarin’s classification used for in the context of gastric varices?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["gastric varices", "classification", "GOV", "IGV"]
+  },
+  {
+    "id": 429,
+    "question": "Why is bleeding from gastric varices associated with higher mortality than esophageal varices?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["high mortality", "first hemorrhage", "large varices"]
+  },
+  {
+    "id": 430,
+    "question": "What severe adverse events are associated with conventional cyanoacrylate injection?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["pulmonary embolism", "systemic embolization", "ulceration"]
+  },
+  {
+    "id": 431,
+    "question": "How does EUS-guided cyanoacrylate injection reduce the risk of embolization?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["feeder vessel targeting", "lower glue volume", "Doppler confirmation"]
+  },
+  {
+    "id": 432,
+    "question": "What is the role of endosonographic varicealography during EUS-guided vascular therapy?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["variceal classification", "procedural safety", "flow assessment"]
+  },
+  {
+    "id": 433,
+    "question": "Why are portosystemic shunts a contraindication for cyanoacrylate injection?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["high embolization risk", "systemic circulation"]
+  },
+  {
+    "id": 434,
+    "question": "What advantages does 2-octyl-cyanoacrylate have compared to N-butyl-cyanoacrylate?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["longer polymerization", "lower needle impaction risk"]
+  },
+  {
+    "id": 435,
+    "question": "How do embolization coils achieve obliteration of gastric varices?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["thrombosis", "mechanical obstruction", "varix obliteration"]
+  },
+  {
+    "id": 436,
+    "question": "What factors must be considered when selecting the size of embolization coils?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["coil diameter", "varix size", "migration prevention"]
+  },
+  {
+    "id": 437,
+    "question": "Why is combined EUS-guided coil and cyanoacrylate therapy recommended for gastric varices?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["higher eradication rate", "lower rebleeding", "reduced embolization"]
+  },
+  {
+    "id": 438,
+    "question": "What evidence supports the use of EUS-guided therapy for primary prophylaxis of gastric variceal bleeding?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["high-risk varices", "reduced first bleeding", "prophylaxis"]
+  },
+  {
+    "id": 439,
+    "question": "In which clinical situations is EUS-guided therapy used for nonvariceal gastrointestinal bleeding?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["refractory bleeding", "Dieulafoy lesions", "gastrointestinal tumors"]
+  },
+  {
+    "id": 440,
+    "question": "How does EUS-guided vascular therapy compare to radiologic or surgical interventions?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["less invasive", "targeted access", "alternative therapy"]
+  },
+  {
+    "id": 441,
+    "question": "What future research needs are identified regarding EUS-guided endovascular therapy?",
+    "type": "direct",
+    "expected_doc_ids": [18],
+    "expected_answer_keywords": ["multicenter trials", "treatment algorithms", "guidelines"]
+  },
+
+  {
+    "id": 442,
+    "question": "How does Gödel’s incompleteness theorem affect formal logical systems?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "mathematics", "outside scope"]
+  },
+  {
+    "id": 443,
+    "question": "What are the main principles of reinforcement learning in artificial intelligence?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["irrelevant", "artificial intelligence", "not covered"]
+  },
+  {
+    "id": 444,
+    "question": "How do plate tectonics explain the formation of mountain ranges?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["geology", "outside domain", "not related"]
+  },
+  {
+    "id": 445,
+    "question": "What causes inflation targeting failures in macroeconomic policy?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "not mentioned", "outside context"]
+  },
+  {
+    "id": 446,
+    "question": "How do large multimodal foundation models align vision and language representations?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["machine learning", "irrelevant", "not in document"]
+  },
+
+
+
+
+
+
+
+  {
+    "id": 447,
+    "question": "What was the main objective of the study on acute myocardial infarction using weighted gene coexpression network analysis?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["candidate genes", "microRNAs", "acute myocardial infarction", "WGCNA"]
+  },
+  {
+    "id": 448,
+    "question": "Which public databases were used to obtain microarray data for acute myocardial infarction in this study?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["Gene Expression Omnibus", "GEO", "microarray data"]
+  },
+  {
+    "id": 449,
+    "question": "How many differentially expressed genes were identified between acute myocardial infarction patients and controls?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["1027", "differentially expressed genes", "DEGs"]
+  },
+  {
+    "id": 450,
+    "question": "Why was one of the microarray datasets excluded during the quality control process?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["low quality", "heterogeneity", "quality control", "excluded dataset"]
+  },
+  {
+    "id": 451,
+    "question": "What criterion was used to select genes for weighted gene coexpression network analysis?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["upper 25% variation", "gene variability", "WGCNA"]
+  },
+  {
+    "id": 452,
+    "question": "How many gene coexpression modules were identified through WGCNA?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["33 modules", "gene coexpression"]
+  },
+  {
+    "id": 453,
+    "question": "Which two gene modules showed the strongest association with acute myocardial infarction?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["turquoise module", "blue module", "association"]
+  },
+  {
+    "id": 454,
+    "question": "What biological processes were most enriched in the turquoise module?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["inflammatory response", "immune response", "innate immunity"]
+  },
+  {
+    "id": 455,
+    "question": "Which hub genes were identified as key candidates in the turquoise module?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["FCN1", "CD14", "S100A9", "ALDH2"]
+  },
+  {
+    "id": 456,
+    "question": "Why is ALDH2 considered important in the context of acute myocardial infarction?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["glycolysis", "gluconeogenesis", "mitochondrial protection", "ischemia"]
+  },
+  {
+    "id": 457,
+    "question": "What role do inflammatory pathways play in the pathogenesis of acute myocardial infarction according to the study?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["inflammation", "immune activation", "myocardial injury"]
+  },
+  {
+    "id": 458,
+    "question": "How was module preservation evaluated between the reference dataset and validation dataset?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["module preservation", "Zsummary", "validation dataset"]
+  },
+  {
+    "id": 459,
+    "question": "Which microRNAs were identified as potential regulators of key genes in acute myocardial infarction?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["let-7d", "let-7b", "miR-124-3", "miR-9-1"]
+  },
+  {
+    "id": 460,
+    "question": "Why are circulating microRNAs considered useful biomarkers for acute myocardial infarction?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["stable", "noninvasive", "diagnostic biomarkers"]
+  },
+  {
+    "id": 461,
+    "question": "What metabolic subpathway was ALDH2 enriched in according to the subpathway analysis?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["glycolysis", "gluconeogenesis", "metabolic subpathway"]
+  },
+  {
+    "id": 462,
+    "question": "How does myocardial ischemia influence energy metabolism in cardiac cells?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["hypoxia", "glycolysis", "energy supply"]
+  },
+  {
+    "id": 463,
+    "question": "What evidence supports the involvement of S100A9 in cardiovascular disease?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["inflammation", "atherosclerosis", "cardiovascular disease"]
+  },
+  {
+    "id": 464,
+    "question": "Why is wound healing considered an important biological process after myocardial infarction?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["tissue repair", "myocardial integrity", "post-infarction"]
+  },
+  {
+    "id": 465,
+    "question": "What limitations of the study are acknowledged by the authors?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["ethnic bias", "sample size", "further validation"]
+  },
+  {
+    "id": 466,
+    "question": "What potential clinical applications are suggested by identifying candidate genes and microRNAs in acute myocardial infarction?",
+    "type": "direct",
+    "expected_doc_ids": [19],
+    "expected_answer_keywords": ["diagnostic targets", "therapeutic targets", "precision medicine"]
+  },
+
+  {
+    "id": 467,
+    "question": "How does blockchain technology ensure immutability of distributed ledgers?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "outside scope", "irrelevant"]
+  },
+  {
+    "id": 468,
+    "question": "What are the main drivers of climate change according to atmospheric physics?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not mentioned", "environmental science", "outside domain"]
+  },
+  {
+    "id": 469,
+    "question": "How do convolutional neural networks process image data?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["artificial intelligence", "not covered", "irrelevant"]
+  },
+  {
+    "id": 470,
+    "question": "What economic mechanisms cause hyperinflation in developing countries?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "outside context", "not related"]
+  },
+  {
+    "id": 471,
+    "question": "How does plate tectonics explain continental drift?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["geology", "not discussed", "outside scope"]
+  },
+
+
+
+
+
+
+
+  {
+    "id": 472,
+    "question": "What was the main objective of the study on long intergenic noncoding RNAs in chicken embryogenesis?",
+    "type": "direct",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["systematic identification", "lincRNAs", "chicken embryo", "embryogenesis"]
+  },
+  {
+    "id": 473,
+    "question": "Which embryonic developmental stages were analyzed in this study?",
+    "type": "direct",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["E1 to E8", "gastrulation", "somitogenesis", "organogenesis"]
+  },
+  {
+    "id": 474,
+    "question": "Which sequencing technologies were combined to identify lincRNAs?",
+    "type": "direct",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["RNA-Seq", "Iso-Seq", "long-read", "short-read"]
+  },
+  {
+    "id": 475,
+    "question": "Approximately how many lincRNA transcripts were retained for downstream analysis?",
+    "type": "direct",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["13,141", "lincRNAs", "filtered", "transcripts"]
+  },
+  {
+    "id": 476,
+    "question": "What proportion of identified lincRNAs were novel compared to existing databases?",
+    "type": "direct",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["novel", "majority", "NONCODE", "Ensembl"]
+  },
+  {
+    "id": 477,
+    "question": "How do lincRNA transcripts compare to protein-coding genes in terms of length and exon number?",
+    "type": "analysis",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["shorter", "fewer exons", "lower complexity"]
+  },
+  {
+    "id": 478,
+    "question": "What expression characteristics distinguish lincRNAs from mRNAs during embryonic development?",
+    "type": "analysis",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["lower expression", "stage-specific", "dynamic patterns"]
+  },
+  {
+    "id": 479,
+    "question": "Which developmental stage showed the highest number of differentially expressed lincRNAs?",
+    "type": "direct",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["E1–E3", "somitogenesis", "early development"]
+  },
+  {
+    "id": 480,
+    "question": "What statistical criteria were used to define differential expression of lincRNAs?",
+    "type": "method",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["DESeq2", "FDR < 0.01", "log2 fold change"]
+  },
+  {
+    "id": 481,
+    "question": "What does the stage-specific expression of lincRNAs suggest about their biological role?",
+    "type": "analysis",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["regulatory role", "developmental specificity", "embryogenesis"]
+  },
+  {
+    "id": 482,
+    "question": "Which analytical approach was used to infer lincRNA functions based on co-expression?",
+    "type": "direct",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["guilt-by-association", "GSEA", "co-expression"]
+  },
+  {
+    "id": 483,
+    "question": "How many gene co-expression modules were identified using WGCNA?",
+    "type": "direct",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["13 modules", "WGCNA"]
+  },
+  {
+    "id": 484,
+    "question": "Which module was most strongly associated with embryonic day 2 (E2)?",
+    "type": "direct",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["brown module", "E2", "strong correlation"]
+  },
+  {
+    "id": 485,
+    "question": "What biological processes were enriched in the brown module?",
+    "type": "analysis",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["hematopoiesis", "lipid metabolism", "cholesterol homeostasis"]
+  },
+  {
+    "id": 486,
+    "question": "Why is the E1–E2 developmental window particularly significant according to the transcriptomic analysis?",
+    "type": "analysis",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["major transcriptional changes", "somitogenesis", "pluripotency"]
+  },
+  {
+    "id": 487,
+    "question": "Which methods were used to assess the coding potential of transcripts?",
+    "type": "method",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["CPC", "CNCI", "CPAT", "Pfam"]
+  },
+  {
+    "id": 488,
+    "question": "How was the reliability of RNA-Seq expression results experimentally validated?",
+    "type": "method",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["qRT-PCR", "validation", "expression patterns"]
+  },
+  {
+    "id": 489,
+    "question": "What advantages does Iso-Seq provide over short-read sequencing for lincRNA identification?",
+    "type": "analysis",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["full-length transcripts", "isoforms", "splicing accuracy"]
+  },
+  {
+    "id": 490,
+    "question": "How do lincRNAs correlate with neighboring protein-coding genes?",
+    "type": "analysis",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["positive correlation", "genomic proximity", "regulatory relationship"]
+  },
+  {
+    "id": 491,
+    "question": "Why are lincRNAs considered suitable targets for functional investigation?",
+    "type": "analysis",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["intergenic location", "regulatory potential", "experimental accessibility"]
+  },
+  {
+    "id": 492,
+    "question": "What limitations do the authors acknowledge regarding lincRNA functional annotation?",
+    "type": "analysis",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["incomplete annotation", "indirect inference", "prediction limits"]
+  },
+  {
+    "id": 493,
+    "question": "Which football team won the 2018 FIFA World Cup?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not mentioned", "irrelevant", "outside scope"]
+  },
+  {
+    "id": 494,
+    "question": "How does increasing RAM improve the performance of a Linux operating system?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not related", "no information", "outside document"]
+  },
+  {
+    "id": 495,
+    "question": "What is the main contribution of this study to developmental genomics research?",
+    "type": "direct",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["comprehensive resource", "lincRNA atlas", "chicken embryogenesis"]
+  },
+  {
+    "id": 496,
+    "question": "Why is the chicken embryo considered a valuable model for transcriptomic studies?",
+    "type": "direct",
+    "expected_doc_ids": [20],
+    "expected_answer_keywords": ["rapid development", "model organism", "vertebrate embryology"]
+  }, 
+
+
+
+
+
+
+  {
+    "id": 497,
+    "question": "What is the primary aim of the article discussing antenatal corticosteroids in the context of COVID-19?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["antenatal corticosteroids", "COVID-19", "pregnancy", "fetal maturation"]
+  },
+  {
+    "id": 498,
+    "question": "Which corticosteroid is supported by high-quality evidence for use in hospitalized COVID-19 patients?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["dexamethasone", "RECOVERY trial"]
+  },
+  {
+    "id": 499,
+    "question": "How does COVID-19 disease severity influence the effectiveness of dexamethasone treatment?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["severity-dependent", "mechanical ventilation", "oxygen support", "no benefit in mild disease"]
+  },
+  {
+    "id": 500,
+    "question": "What evidence suggests potential harm of corticosteroids in patients with mild COVID-19?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["trend toward harm", "no respiratory support", "increased mortality"]
+  },
+  {
+    "id": 501,
+    "question": "Why is indiscriminate use of fluorinated corticosteroids for fetal maturation discouraged?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["risk stratification", "maternal harm", "disease stage"]
+  },
+  {
+    "id": 502,
+    "question": "What was the primary outcome measured in the RECOVERY trial related to dexamethasone?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["28-day mortality", "rate ratio", "mortality reduction"]
+  },
+  {
+    "id": 503,
+    "question": "In which group of COVID-19 patients did dexamethasone show the greatest mortality benefit?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["mechanical ventilation", "severe disease"]
+  },
+  {
+    "id": 504,
+    "question": "Why may early corticosteroid administration during high viral replication be harmful?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["impaired immune response", "delayed viral clearance", "increased viral load"]
+  },
+  {
+    "id": 505,
+    "question": "What immunological phenomenon is associated with severe COVID-19 where corticosteroids may be beneficial?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["cytokine storm", "systemic inflammation", "elevated inflammatory markers"]
+  },
+  {
+    "id": 506,
+    "question": "Which organizations recommend dexamethasone only for severe or critical COVID-19 cases?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["WHO", "NIH", "guidelines"]
+  },
+  {
+    "id": 507,
+    "question": "What dosage of dexamethasone was used in the RECOVERY trial?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["6 mg", "daily", "10 days"]
+  },
+  {
+    "id": 508,
+    "question": "Why are low-dose corticosteroid regimens preferred over high-dose regimens in COVID-19?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["lower risk", "secondary infections", "thromboembolism"]
+  },
+  {
+    "id": 509,
+    "question": "Which corticosteroids are less likely to cross the placenta and affect the fetus?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["prednisolone", "hydrocortisone", "limited transplacental passage"]
+  },
+  {
+    "id": 510,
+    "question": "Why is dexamethasone sometimes preferred over methylprednisolone in severe COVID-19?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["higher anti-inflammatory activity", "lower mineralocorticoid effect"]
+  },
+  {
+    "id": 511,
+    "question": "At which gestational age is antenatal corticosteroid administration considered beneficial for fetal maturity?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["24 to 34 weeks", "preterm delivery", "fetal lung maturation"]
+  },
+  {
+    "id": 512,
+    "question": "What evidence suggests overuse or poor timing of antenatal corticosteroids in clinical practice?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["30–80%", "delivered after 34 weeks", "poor timing"]
+  },
+  {
+    "id": 513,
+    "question": "Why is antenatal corticosteroid use after 34 weeks gestation considered to have an unfavorable risk-benefit ratio?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["minimal neonatal benefit", "maternal risk", "late preterm"]
+  },
+  {
+    "id": 514,
+    "question": "What approach is recommended for deciding antenatal corticosteroid use in pregnant women with COVID-19?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["multidisciplinary team", "risk-based decision", "individualized care"]
+  },
+  {
+    "id": 515,
+    "question": "Why are pregnant women with asymptomatic or mild COVID-19 generally not candidates for dexamethasone?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["no benefit", "potential harm", "RECOVERY criteria"]
+  },
+  {
+    "id": 516,
+    "question": "What ethical consideration supports fetal exposure to dexamethasone in severe maternal COVID-19?",
+    "type": "direct",
+    "expected_doc_ids": [21],
+    "expected_answer_keywords": ["reduced maternal mortality", "short course", "risk-benefit balance"]
+  },
+
+  {
+    "id": 517,
+    "question": "How does gradient descent optimize loss functions in deep neural networks?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not discussed", "artificial intelligence", "outside scope"]
+  },
+  {
+    "id": 518,
+    "question": "What geological processes drive the formation of volcanoes?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["irrelevant", "geology", "not in document"]
+  },
+  {
+    "id": 519,
+    "question": "How do blockchain consensus algorithms prevent double spending?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["not mentioned", "computer science", "outside domain"]
+  },
+  {
+    "id": 520,
+    "question": "What economic mechanisms explain inflation targeting by central banks?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["economics", "not related", "outside context"]
+  },
+  {
+    "id": 521,
+    "question": "How does stellar nucleosynthesis produce heavy chemical elements?",
+    "type": "trap",
+    "expected_doc_ids": [],
+    "expected_answer_keywords": ["astronomy", "irrelevant", "not covered"]
+  },
+
+  
+
+
+
+
+  
+
+  {
+    "id": 552,
+    "question": "How do lifestyle and behavioral risk factors jointly influence the development of multiple noncommunicable diseases?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 14, 16],
+    "expected_answer_keywords": ["behavioral risk factors", "obesity", "physical inactivity", "multiple NCDs"]
+  },
+  {
+    "id": 553,
+    "question": "How does early prevention during young adulthood reduce long-term cardiovascular and metabolic risk?",
+    "type": "synthesis",
+    "expected_doc_ids": [12, 14, 16],
+    "expected_answer_keywords": ["early prevention", "young adults", "long-term risk reduction"]
+  },
+  {
+    "id": 554,
+    "question": "How do barriers to early diagnosis affect outcomes in both infectious and chronic diseases?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 7, 11],
+    "expected_answer_keywords": ["late diagnosis", "disease progression", "mortality"]
+  },
+  {
+    "id": 555,
+    "question": "What similarities exist between prevention strategies for sensory impairments and chronic diseases?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 9, 17],
+    "expected_answer_keywords": ["screening", "early intervention", "preventable conditions"]
+  },
+  {
+    "id": 556,
+    "question": "How does strengthening primary health care improve management of multimorbidity?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 15, 16],
+    "expected_answer_keywords": ["primary health care", "multimorbidity", "integrated care"]
+  },
+  {
+    "id": 557,
+    "question": "How do health system disruptions affect disease outcomes in conflict and post-conflict settings?",
+    "type": "synthesis",
+    "expected_doc_ids": [11, 13, 16],
+    "expected_answer_keywords": ["health system disruption", "conflict", "access to care"]
+  },
+  {
+    "id": 558,
+    "question": "How does limited access to essential medicines worsen outcomes across different disease categories?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 10, 15],
+    "expected_answer_keywords": ["essential medicines", "treatment gap", "poor outcomes"]
+  },
+  {
+    "id": 559,
+    "question": "How do shared social determinants contribute to clustering of multiple health conditions?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 9, 17],
+    "expected_answer_keywords": ["social determinants", "inequality", "disease clustering"]
+  },
+  {
+    "id": 560,
+    "question": "How does poor treatment adherence affect both infectious disease control and chronic disease management?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 10, 16],
+    "expected_answer_keywords": ["non-adherence", "treatment failure", "disease control"]
+  },
+  {
+    "id": 561,
+    "question": "How does population ageing increase the complexity of disease prevention strategies?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 17],
+    "expected_answer_keywords": ["ageing", "multimorbidity", "complex care"]
+  },
+  {
+    "id": 562,
+    "question": "How do surveillance systems support early response to both communicable and noncommunicable diseases?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 11, 16],
+    "expected_answer_keywords": ["surveillance", "early response", "monitoring systems"]
+  },
+  {
+    "id": 563,
+    "question": "How does stigma influence health-seeking behavior across mental, sensory, and chronic conditions?",
+    "type": "synthesis",
+    "expected_doc_ids": [3, 9, 17],
+    "expected_answer_keywords": ["stigma", "delayed care", "help-seeking behavior"]
+  },
+  {
+    "id": 564,
+    "question": "How does early-life exposure to risk factors shape adult disease burden?",
+    "type": "synthesis",
+    "expected_doc_ids": [12, 14, 16],
+    "expected_answer_keywords": ["early-life exposure", "adult disease risk", "life-course approach"]
+  },
+  {
+    "id": 565,
+    "question": "What common implementation challenges limit scaling prevention programs globally?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 11, 16],
+    "expected_answer_keywords": ["implementation barriers", "funding gaps", "health system capacity"]
+  },
+  {
+    "id": 566,
+    "question": "How do integrated service delivery models improve outcomes for people with chronic conditions?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 15],
+    "expected_answer_keywords": ["integrated services", "continuity of care", "multimorbidity"]
+  },
+  {
+    "id": 567,
+    "question": "How do economic constraints affect prioritization of health interventions across diseases?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 7, 16],
+    "expected_answer_keywords": ["economic constraints", "resource allocation", "health priorities"]
+  },
+  {
+    "id": 568,
+    "question": "How do policy-level interventions complement individual behavior change in disease prevention?",
+    "type": "synthesis",
+    "expected_doc_ids": [12, 16],
+    "expected_answer_keywords": ["policy interventions", "behavior change", "population health"]
+  },
+  {
+    "id": 569,
+    "question": "How does delayed care-seeking contribute to preventable disability and mortality?",
+    "type": "synthesis",
+    "expected_doc_ids": [9, 11, 17],
+    "expected_answer_keywords": ["delayed care", "preventable disability", "mortality"]
+  },
+  {
+    "id": 570,
+    "question": "How do comorbid conditions complicate clinical decision-making?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 15],
+    "expected_answer_keywords": ["comorbidity", "clinical complexity", "treatment decisions"]
+  },
+  {
+    "id": 571,
+    "question": "How does universal health coverage support prevention and management of chronic diseases?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 15, 16],
+    "expected_answer_keywords": ["universal health coverage", "access", "continuity of care"]
+  },
+  {
+    "id": 572,
+    "question": "How do risk communication and health literacy influence prevention outcomes?",
+    "type": "synthesis",
+    "expected_doc_ids": [12, 16],
+    "expected_answer_keywords": ["health literacy", "risk communication", "preventive behavior"]
+  },
+  {
+    "id": 573,
+    "question": "How does prevention of disability contribute to economic and social development?",
+    "type": "synthesis",
+    "expected_doc_ids": [9, 17, 16],
+    "expected_answer_keywords": ["disability prevention", "economic productivity", "social inclusion"]
+  },
+  {
+    "id": 574,
+    "question": "How do multidisciplinary care models improve outcomes in complex medical conditions?",
+    "type": "synthesis",
+    "expected_doc_ids": [10, 15, 21],
+    "expected_answer_keywords": ["multidisciplinary care", "risk-benefit", "clinical outcomes"]
+  },
+  {
+    "id": 575,
+    "question": "How do global targets influence national health strategies?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 7, 16],
+    "expected_answer_keywords": ["global targets", "national policy", "monitoring"]
+  },
+  {
+    "id": 576,
+    "question": "How does behavioral risk clustering amplify overall disease burden?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 12, 14],
+    "expected_answer_keywords": ["risk clustering", "synergistic effects", "disease burden"]
+  },
+  {
+    "id": 577,
+    "question": "How does access to screening programs reduce long-term health system costs?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 9, 17],
+    "expected_answer_keywords": ["screening", "early detection", "cost reduction"]
+  },
+  {
+    "id": 578,
+    "question": "How do gender-specific factors influence prevention and treatment outcomes?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 9, 14],
+    "expected_answer_keywords": ["gender differences", "risk factors", "health outcomes"]
+  },
+  {
+    "id": 579,
+    "question": "How do long-term treatment strategies differ between infectious and chronic diseases?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 10, 16],
+    "expected_answer_keywords": ["long-term treatment", "adherence", "chronic management"]
+  },
+  {
+    "id": 580,
+    "question": "How do preventive interventions during pregnancy affect long-term population health?",
+    "type": "synthesis",
+    "expected_doc_ids": [12, 21],
+    "expected_answer_keywords": ["pregnancy", "early intervention", "long-term outcomes"]
+  },
+  {
+    "id": 581,
+    "question": "How does data integration improve public health decision-making?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 11, 16],
+    "expected_answer_keywords": ["data integration", "evidence-based policy", "public health"]
+  },
+  {
+    "id": 582,
+    "question": "How does reduced access to care exacerbate health inequities across diseases?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 9, 17],
+    "expected_answer_keywords": ["health inequities", "access barriers", "vulnerable populations"]
+  },
+  {
+    "id": 583,
+    "question": "How does early intervention reduce lifelong disability risk?",
+    "type": "synthesis",
+    "expected_doc_ids": [9, 17, 12],
+    "expected_answer_keywords": ["early intervention", "lifelong disability", "prevention"]
+  },
+  {
+    "id": 584,
+    "question": "How do workforce shortages impact health system performance?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 11, 17],
+    "expected_answer_keywords": ["health workforce", "service delivery", "access gaps"]
+  },
+  {
+    "id": 585,
+    "question": "How does environmental exposure contribute to both infectious and chronic disease risk?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 7, 16],
+    "expected_answer_keywords": ["environmental exposure", "risk factors", "disease burden"]
+  },
+  {
+    "id": 586,
+    "question": "How do economic incentives influence health behavior change?",
+    "type": "synthesis",
+    "expected_doc_ids": [12, 16],
+    "expected_answer_keywords": ["economic incentives", "behavior change", "prevention"]
+  },
+  {
+    "id": 587,
+    "question": "How does patient education improve long-term disease management?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 15],
+    "expected_answer_keywords": ["patient education", "self-management", "treatment adherence"]
+  },
+  {
+    "id": 588,
+    "question": "How does fragmented care negatively affect outcomes in chronic disease patients?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 15],
+    "expected_answer_keywords": ["fragmented care", "poor outcomes", "care coordination"]
+  },
+  {
+    "id": 589,
+    "question": "How do prevention strategies need to adapt across the life course?",
+    "type": "synthesis",
+    "expected_doc_ids": [12, 14, 17],
+    "expected_answer_keywords": ["life-course approach", "age-specific prevention", "risk transition"]
+  },
+  {
+    "id": 590,
+    "question": "How does digital health support disease prevention and monitoring?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 16],
+    "expected_answer_keywords": ["digital health", "monitoring", "prevention support"]
+  },
+  {
+    "id": 591,
+    "question": "How do ethical considerations influence treatment decisions in high-risk patients?",
+    "type": "synthesis",
+    "expected_doc_ids": [10, 21],
+    "expected_answer_keywords": ["ethics", "risk-benefit", "clinical decision-making"]
+  },
+  {
+    "id": 592,
+    "question": "How does early screening reduce avoidable complications across multiple diseases?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 9, 17],
+    "expected_answer_keywords": ["early screening", "complication prevention", "better outcomes"]
+  },
+  {
+    "id": 593,
+    "question": "How does social support influence recovery and long-term outcomes in chronic illness?",
+    "type": "synthesis",
+    "expected_doc_ids": [3, 7, 17],
+    "expected_answer_keywords": ["social support", "recovery", "long-term outcomes"]
+  },
+  {
+    "id": 594,
+    "question": "How does global health financing affect national disease control priorities?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 11, 16],
+    "expected_answer_keywords": ["health financing", "prioritization", "disease control"]
+  },
+  {
+    "id": 595,
+    "question": "How do clinical guidelines harmonize care across different disease areas?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 10, 15],
+    "expected_answer_keywords": ["clinical guidelines", "standardized care", "quality improvement"]
+  },
+  {
+    "id": 596,
+    "question": "How does long-term follow-up improve disease prognosis?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 17],
+    "expected_answer_keywords": ["long-term follow-up", "prognosis", "chronic disease"]
+  },
+  {
+    "id": 597,
+    "question": "How do prevention efforts in childhood influence adult disease patterns?",
+    "type": "synthesis",
+    "expected_doc_ids": [12, 14, 17],
+    "expected_answer_keywords": ["childhood prevention", "adult disease", "early intervention"]
+  },
+  {
+    "id": 598,
+    "question": "How does integrated surveillance strengthen outbreak preparedness and chronic disease control?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 11, 16],
+    "expected_answer_keywords": ["integrated surveillance", "preparedness", "control strategies"]
+  },
+  {
+    "id": 599,
+    "question": "How do behavioral interventions complement pharmacological treatments?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 15],
+    "expected_answer_keywords": ["behavioral interventions", "pharmacological treatment", "combined approach"]
+  },
+  {
+    "id": 600,
+    "question": "How does health system resilience influence response to concurrent disease burdens?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 7, 16],
+    "expected_answer_keywords": ["health system resilience", "concurrent burdens", "system capacity"]
+  },
+  {
+    "id": 601,
+    "question": "How do screening and preventive services reduce inequities in health outcomes?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 9, 12],
+    "expected_answer_keywords": ["screening services", "equity", "early access"]
+  },
+  {
+    "id": 602,
+    "question": "How do prevention strategies differ between high-income and low-income settings?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 11, 16],
+    "expected_answer_keywords": ["resource differences", "prevention strategies", "income settings"]
+  },
+  {
+    "id": 603,
+    "question": "How does continuity of care influence disease control and patient outcomes?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 15],
+    "expected_answer_keywords": ["continuity of care", "better outcomes", "disease control"]
+  },
+  {
+    "id": 604,
+    "question": "How do multidisciplinary teams reduce clinical risk in complex cases?",
+    "type": "synthesis",
+    "expected_doc_ids": [10, 21, 15],
+    "expected_answer_keywords": ["multidisciplinary teams", "clinical risk", "decision-making"]
+  },
+  {
+    "id": 605,
+    "question": "How does preventive care reduce avoidable hospitalizations?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 16],
+    "expected_answer_keywords": ["preventive care", "avoidable hospitalizations", "cost savings"]
+  },
+  {
+    "id": 606,
+    "question": "How do health education campaigns influence population-level behavior change?",
+    "type": "synthesis",
+    "expected_doc_ids": [12, 16],
+    "expected_answer_keywords": ["health education", "behavior change", "population impact"]
+  },
+  {
+    "id": 607,
+    "question": "How does poor coordination between services affect patient safety?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 15],
+    "expected_answer_keywords": ["poor coordination", "patient safety", "care gaps"]
+  },
+  {
+    "id": 608,
+    "question": "How do prevention strategies reduce the long-term economic burden of disease?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 16],
+    "expected_answer_keywords": ["economic burden", "prevention", "long-term savings"]
+  },
+  {
+    "id": 609,
+    "question": "How do integrated care pathways improve management of chronic conditions?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 15],
+    "expected_answer_keywords": ["integrated pathways", "chronic care", "improved management"]
+  },
+  {
+    "id": 610,
+    "question": "How does maternal health influence long-term population health outcomes?",
+    "type": "synthesis",
+    "expected_doc_ids": [12, 21],
+    "expected_answer_keywords": ["maternal health", "long-term outcomes", "population health"]
+  },
+  {
+    "id": 611,
+    "question": "How does access to assistive technologies reduce disability-related inequities?",
+    "type": "synthesis",
+    "expected_doc_ids": [9, 17],
+    "expected_answer_keywords": ["assistive technologies", "disability", "equity"]
+  },
+  {
+    "id": 612,
+    "question": "How does system-level prevention differ from individual-level prevention?",
+    "type": "synthesis",
+    "expected_doc_ids": [12, 16],
+    "expected_answer_keywords": ["system-level prevention", "individual-level", "population health"]
+  },
+  {
+    "id": 613,
+    "question": "How do social protection mechanisms influence health outcomes in vulnerable populations?",
+    "type": "synthesis",
+    "expected_doc_ids": [13, 16],
+    "expected_answer_keywords": ["social protection", "vulnerable populations", "health outcomes"]
+  },
+  {
+    "id": 614,
+    "question": "How does improved referral systems enhance disease management?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 17],
+    "expected_answer_keywords": ["referral systems", "care coordination", "disease management"]
+  },
+  {
+    "id": 615,
+    "question": "How do chronic diseases and disabilities reinforce cycles of poverty?",
+    "type": "synthesis",
+    "expected_doc_ids": [9, 16],
+    "expected_answer_keywords": ["poverty cycle", "chronic disease", "disability"]
+  },
+  {
+    "id": 616,
+    "question": "How does evidence-based policymaking improve health outcomes?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 16],
+    "expected_answer_keywords": ["evidence-based policy", "health outcomes", "decision-making"]
+  },
+  {
+    "id": 617,
+    "question": "How does long-term monitoring support prevention of disease complications?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 17],
+    "expected_answer_keywords": ["long-term monitoring", "complication prevention", "chronic disease"]
+  },
+  {
+    "id": 618,
+    "question": "How does early detection reduce health system strain over time?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 9, 16],
+    "expected_answer_keywords": ["early detection", "health system efficiency", "cost reduction"]
+  },
+  {
+    "id": 619,
+    "question": "How do global partnerships enhance disease prevention and control efforts?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 11, 16],
+    "expected_answer_keywords": ["global partnerships", "collaboration", "disease control"]
+  },
+  {
+    "id": 620,
+    "question": "How does patient-centered care improve adherence and outcomes?",
+    "type": "synthesis",
+    "expected_doc_ids": [7, 8, 15],
+    "expected_answer_keywords": ["patient-centered care", "adherence", "better outcomes"]
+  },
+  {
+    "id": 621,
+    "question": "Why is a whole-of-system approach necessary to address complex health challenges?",
+    "type": "synthesis",
+    "expected_doc_ids": [6, 7, 16],
+    "expected_answer_keywords": ["whole-of-system", "complex challenges", "health systems"]
+  }
+
+
+]
+
