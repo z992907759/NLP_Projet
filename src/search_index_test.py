@@ -12,15 +12,15 @@ INDEX_DIR = BASE_DIR / "data" / "index"
 
 
 def load_resources():
-    # 1) Load metadata
+    # 1. Chargement des métadonnées
     corpus_path = PROC_DIR / "docs_corpus.csv"
     df = pd.read_csv(corpus_path)
 
-    # 2) Load FAISS index
+    # 2. Chargement de l'index FAISS
     faiss_path = INDEX_DIR / "corpus.index"
     index = faiss.read_index(str(faiss_path))
 
-    # 3) Load embedding model
+    # 3. Charger le modèle d'embedding
     model_name_path = INDEX_DIR / "embedding_model.txt"
     model_name = model_name_path.read_text(encoding="utf-8").strip()
     print(f"Loaded embedding model: {model_name}")
@@ -30,14 +30,14 @@ def load_resources():
 
 
 def search(query, df, index, model, top_k=5):
-    # 1) Encode query
+    # 1. Encoder la question
     query_emb = model.encode(
         [query],
         convert_to_numpy=True,
         normalize_embeddings=True,
     )
 
-    # 2) Search in FAISS
+    # 2. Recherche dans FAISS
     scores, indices = index.search(query_emb, top_k)
 
     results = []
@@ -72,7 +72,7 @@ def main():
 
         print("\nTop-5 retrieval results:")
         for i, r in enumerate(results, start=1):
-            # Show only first 200 characters to avoid long output
+            # Montre uniquement les 200 premiers caractères pour éviter les longues sorties
             preview = r["text"][:200].replace("\n", " ")
             print(f"[{i}] doc_id={r['doc_id']}  score={r['score']:.4f}")
             print(f"    {preview}...")

@@ -1,33 +1,46 @@
+# IMPORTS
 from pathlib import Path
+import sys
 import re
 import json
 import pandas as pd
+import csv
 
-# CONFIGURATION DES CHEMINS (ETL SETUP)
+import faiss
+import numpy as np
+from sentence_transformers import SentenceTransformer
 
-# On remonte d'un niveau (../) pour atteindre la racine du projet
-BASE_DIR = Path(__file__).resolve().parent.parent 
 
-# Dossier d'entrée (Documents bruts)
-# Assure-toi que tes PDFs/TXT sont bien ici
-RAW_DOC_DIR = BASE_DIR / "data" / "raw"
 
-# Dossier de sortie (Données traitées)
+
+from pathlib import Path
+
+sys.path.append("..") 
+
+# CONFIGURATION DES CHEMINS
+BASE_DIR = Path("..") 
+
+# Dossier d'entrée
+RAW_DOC_DIR = BASE_DIR / "data" / "raw_docs"
+
+# Dossier de sortie
 PROC_DIR = BASE_DIR / "data" / "processed"
+
+# On crée le dossier s'il n'existe pas
 PROC_DIR.mkdir(parents=True, exist_ok=True)
 
-# Fichier final (Corpus structuré)
+# Fichier final
 OUT_PATH = PROC_DIR / "docs_corpus.csv"
 
 
-# 1. FONCTIONS D'EXTRACTION (READERS)
+
+# FONCTIONS D'EXTRACTION (READERS)
 
 def read_txt(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="ignore")
 
 
 def read_pdf(path: Path) -> str:
-
     try:
         from PyPDF2 import PdfReader
     except ImportError:
@@ -60,13 +73,13 @@ def read_json_as_text(path: Path) -> str:
                 if key in obj and isinstance(obj[key], str):
                     texts.append(obj[key])
                     return
-            # Fallback : si aucune clé connue, on dump l'objet en JSON string
+            # Si aucune clé connue, on dump l'objet en JSON string
             texts.append(json.dumps(obj, ensure_ascii=False))
         else:
             texts.append(json.dumps(obj, ensure_ascii=False))
 
     try:
-        # Cas 1 : JSON Lines (.jsonl) - Un objet JSON par ligne
+        # Cas 1 : JSON Lines (.jsonl) : Un objet JSON par ligne
         if path.suffix.lower() == ".jsonl":
             with path.open(encoding="utf-8") as f:
                 for line in f:
@@ -77,7 +90,7 @@ def read_json_as_text(path: Path) -> str:
                     except json.JSONDecodeError:
                         continue
                     _extract_from_obj(obj)
-        # Cas 2 : JSON Standard (.json) - Liste ou Objet unique
+        # Cas 2 : JSON Standard (.json) : Liste ou Objet unique
         else:
             with path.open(encoding="utf-8") as f:
                 data = json.load(f)
@@ -93,18 +106,22 @@ def read_json_as_text(path: Path) -> str:
     return "\n\n".join(texts)
 
 
-# 2. FONCTIONS DE NETTOYAGE & DÉCOUPAGE (PRE-PROCESSING)
+
+
+
+
+# FONCTIONS DE NETTOYAGE ET DÉCOUPAGE (PRE-PROCESSING)
 
 def basic_clean(text: str) -> list[str]:
-    # Normalize line breaks
+    # Normalisation des retours à la ligne
     text = text.replace("\r\n", "\n").replace("\r", "\n")
 
-    # Split into raw paragraphs using empty lines as separators
+    # Séparation en paragraphes en utilisant les lignes vides comme séparateurs
     raw_paragraphs = re.split(r"\n\s*\n", text)
 
     paragraphs: list[str] = []
     for para in raw_paragraphs:
-        # Collapse internal whitespace (transforme les tabulations/espaces multiples en 1 espace)
+        # Fusionner les espaces vides en 1
         para = re.sub(r"\s+", " ", para).strip()
         
         # Filtre de qualité : On ignore les headers, numéros de page, ou bruit < 20 caractères
@@ -114,121 +131,181 @@ def basic_clean(text: str) -> list[str]:
 
     return paragraphs
 
+import re
+from typing import List
 
-def chunk_text(paragraphs: list[str], max_words: int = 300):
+def optimized_chunk_text(paragraphs: list[str], max_words: int = 300, overlap_words: int = 50):
+
+    # 1. Text reconstruction
+    full_text = "\n\n".join(p.strip() for p in paragraphs if p.strip())
+    
+    # 2. Sentence splitting (preserving punctuation)
+    sentence_endings = re.compile(r'(?<=[.!?])\s+')
+    sentences = sentence_endings.split(full_text)
+    
     chunks: list[str] = []
-    current_words: list[str] = []
+    current_chunk_sentences: list[str] = []
+    current_word_count = 0
+    
+    i = 0
+    while i < len(sentences):
+        sentence = sentences[i].strip()
+        if not sentence:
+            i += 1
+            continue
+            
+        sentence_word_count = len(sentence.split())
 
-    for para in paragraphs:
-        words = para.split()
-
-        # CAS 1 : Le paragraphe seul est DÉJÀ plus gros que la limite
-        # On est obligé de le découper brutalement
-        if len(words) > max_words:
-            # Si on avait des mots en attente, on les sauvegarde d'abord
-            if current_words:
-                chunks.append(" ".join(current_words).strip())
-                current_words = []
-                
-            # Découpage du gros paragraphe en sous-morceaux
-            for i in range(0, len(words), max_words):
-                chunk = " ".join(words[i : i + max_words]).strip()
-                if chunk:
-                    chunks.append(chunk)
+        # CASE A: GIANT SENTENCE
+        # If the sentence alone exceeds the limit, we cut it
+        if sentence_word_count > max_words:
+            # 1. Save what we have already accumulated in the current buffer
+            if current_chunk_sentences:
+                chunks.append(" ".join(current_chunk_sentences))
+                current_chunk_sentences = []
+                current_word_count = 0
+            
+            # 2. Cut the giant sentence into pieces of size max_words
+            words = sentence.split()
+            for j in range(0, len(words), max_words - overlap_words):
+                # Create a sub-chunk
+                sub_chunk_words = words[j : j + max_words]
+                chunks.append(" ".join(sub_chunk_words))
+            
+            # 3. Move to the next sentence
+            i += 1
             continue
 
-        # CAS 2 : On peut ajouter ce paragraphe au chunk courant sans dépasser la limite
-        if len(current_words) + len(words) <= max_words:
-            current_words.extend(words)
+        # CASE B: STANDARD ADDITION
+        # If it fits in the current chunk
+        if current_word_count + sentence_word_count <= max_words:
+            current_chunk_sentences.append(sentence)
+            current_word_count += sentence_word_count
+            i += 1
         
-        # CAS 3 : Le chunk courant est plein, on le sauvegarde et on en commence un nouveau
+        # CASE C: CHUNK IS FULL (Overlap Handling)
         else:
-            chunk = " ".join(current_words).strip()
-            if chunk:
-                chunks.append(chunk)
-            current_words = words[:] # On démarre le nouveau chunk avec le paragraphe actuel
+            # 1. Validate (save) the current chunk
+            chunks.append(" ".join(current_chunk_sentences))
+            
+            # 2. Calculate overlap (keep the last few sentences for context)
+            overlap_buffer = []
+            overlap_count = 0
+            
+            for prev_sent in reversed(current_chunk_sentences):
+                prev_len = len(prev_sent.split())
+                if overlap_count + prev_len <= overlap_words:
+                    overlap_buffer.insert(0, prev_sent)
+                    overlap_count += prev_len
+                else:
+                    break
+            
+            # 3. INFINITE LOOP SAFETY
+            # If Overlap + New Sentence > Max, we cannot do a clean overlap
+            # We must start fresh to avoid an infinite loop
+            if overlap_count + sentence_word_count > max_words:
+                current_chunk_sentences = [] # Abandon overlap to prevent blocking
+                current_word_count = 0
+            else:
+                current_chunk_sentences = overlap_buffer[:]
+                current_word_count = overlap_count
 
-    # Ne pas oublier le dernier morceau resté dans le buffer
-    if current_words:
-        chunk = " ".join(current_words).strip()
-        if chunk:
-            chunks.append(chunk)
+    # End of loop: save the remainder
+    if current_chunk_sentences:
+        chunks.append(" ".join(current_chunk_sentences))
 
     return chunks
 
 
-# MAIN
 
+
+
+
+
+
+import csv
+import re
+import fitz  # PyMuPDF
+from pathlib import Path
+
+# NEW PDF READING FUNCTION
+def read_pdf(path: Path) -> str:
+    text_parts = []
+    try:
+        # 'fitz' (PyMuPDF) is much faster than PyPDF2 and does not hang on complex files
+        with fitz.open(path) as doc:
+            for page in doc:
+                text_parts.append(page.get_text())
+    except Exception as e:
+        print(f"[ERROR] Failed to read PDF {path.name}: {e}")
+        return ""
+    return "\n\n".join(text_parts)
+
+
+# --- OPTIMIZED PIPELINE (Memory & Speed) ---
 def main():
-    """
-    Point d'entrée du script d'ingestion.
-    Parcourt RAW_DOC_DIR -> Extrait -> Nettoie -> Chunk -> Sauvegarde CSV.
-    """
-    rows = []
+    # 1. Initialize output file with headers
+    if not PROC_DIR.exists():
+        PROC_DIR.mkdir(parents=True, exist_ok=True)
+        
+    csv_headers = ["doc_id", "chunk_id", "text", "source"]
+    
+    # Overwrite if file exists to start fresh
+    with open(OUT_PATH, "w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(csv_headers)
+
     doc_id = 1
+    total_chunks = 0
+    
+    # Sort files to ensure constant and predictable processing order
+    files = sorted(list(RAW_DOC_DIR.iterdir()))
+    print(f"[INFO] Scanning {len(files)} files in {RAW_DOC_DIR}...")
 
-    # Vérification dossier
-    if not RAW_DOC_DIR.exists():
-        print(f"[ERROR] RAW_DOC_DIR does not exist: {RAW_DOC_DIR}")
-        print("Please create the folder and put your PDF/TXT files inside.")
-        return
-
-    print(f"[INFO] Scanning files in {RAW_DOC_DIR}...")
-
-    # Boucle sur les fichiers
-    for path in RAW_DOC_DIR.iterdir():
+    # 2. Process file by file
+    for path in files:
         if not path.is_file():
             continue
 
         suffix = path.suffix.lower()
-
-        # 1. Extraction selon le type
+        
+        # Reader selection based on file extension
         if suffix == ".txt":
             raw_text = read_txt(path)
         elif suffix == ".pdf":
-            raw_text = read_pdf(path)
+            raw_text = read_pdf(path) # Now uses PyMuPDF
         elif suffix in {".json", ".jsonl"}:
             raw_text = read_json_as_text(path)
         else:
-            print(f"[WARN] Skipping unsupported file type: {path.name}")
             continue
-
-        # 2. Nettoyage
+            
+        # Basic Cleaning
         paragraphs = basic_clean(raw_text)
-        if not paragraphs:
-            print(f"[WARN] Empty document after cleaning: {path.name}")
+        if not paragraphs: 
             continue
 
-        # 3. Chunking (Découpage)
-        chunks = chunk_text(paragraphs, max_words=300)
-        if not chunks:
-            print(f"[WARN] No chunks produced for: {path.name}")
+        # Chunking (using the robust function)
+        chunks = optimized_chunk_text(paragraphs, max_words=300)
+        if not chunks: 
             continue
 
-        # 4. Structuration des données
-        for chunk_id, chunk in enumerate(chunks, start=1):
-            rows.append(
-                {
-                    "doc_id": doc_id,       # ID unique du document
-                    "chunk_id": chunk_id,   # ID du morceau dans le doc
-                    "text": chunk,          # Contenu
-                    "source": path.name,    # Méta-donnée source
-                }
-            )
-
-        print(f"[INFO] Processed {path.name}: {len(chunks)} chunks")
+        # 3. Immediate writing to disk (Memory Safe)
+        rows_to_write = []
+        for chunk_idx, chunk_text in enumerate(chunks, start=1):
+            rows_to_write.append([doc_id, chunk_idx, chunk_text, path.name])
+        
+        # Open, write, close. RAM remains empty.
+        with open(OUT_PATH, "a", encoding="utf-8", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerows(rows_to_write)
+        
+        # Simple visual feedback
+        print(f"[INFO] Processed {path.name}: {len(chunks)} chunks saved.")
+        
+        total_chunks += len(chunks)
         doc_id += 1
 
-    # 5. Sauvegarde Finale
-    if not rows:
-        print("[ERROR] No chunks generated. Check documents in data/raw.")
-        return
+    print(f"\n[OK] Pipeline finished. {total_chunks} chunks written to {OUT_PATH}")
 
-    df = pd.DataFrame(rows)
-    df.to_csv(OUT_PATH, index=False, encoding="utf-8")
-    print(f"\n[OK] Pipeline Terminé.")
-    print(f"     Saved {len(df)} chunks from {doc_id-1} documents to {OUT_PATH}")
-
-
-if __name__ == "__main__":
-    main()
+# Run the pipeline
+main()

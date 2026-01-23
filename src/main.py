@@ -1,3 +1,4 @@
+# IMPORTS
 from pathlib import Path
 import textwrap
 import warnings
@@ -15,44 +16,43 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 # Bibliothèque NLP (Mots-clés)
 from rank_bm25 import BM25Okapi 
 
-# =========================================================
-# CONFIGURATION GLOBALE
-# =========================================================
+import sys
+from pathlib import Path
 
-# Le modèle LLM (Cerveau) : Version légère (1B) mais instruction-tuned
+# CONFIGURATION GLOBALE
+
+# Le modèle LLM
 MODEL_NAME = "meta-llama/Llama-3.2-1B-Instruct"
 
-# Seuils de décision (Gardes-fous anti-hallucination)
-THRESHOLD_SIMPLE = 0.45   # Pour FAISS (0 à 1). En dessous, c'est du bruit.
-THRESHOLD_RERANK = 0.00   # Pour Cross-Encoder (Logits -10 à +10). < 0 signifie "Non pertinent".
+# Seuils de décision
+THRESHOLD_SIMPLE = 0.35   # Pour FAISS (0 à 1).
+THRESHOLD_RERANK = -4.00   # Pour Cross-Encoder (Logits -10 à +10). < 0 signifie Non pertinent.
 
 print(f"[INIT] Loading LLM model: {MODEL_NAME}...")
 
-# Détection automatique du matériel (GPU vs CPU)
+# Détection automatique du matériel (GPU ou CPU)
 if torch.cuda.is_available() or torch.backends.mps.is_available():
-    llm_dtype = torch.bfloat16 # Mode rapide & léger pour GPU
+    llm_dtype = torch.bfloat16 # Mode rapide et léger pour GPU
     print("[INIT] Mode: GPU Acceleration (bfloat16)")
 else:
     llm_dtype = torch.float32  # Mode standard pour CPU
     print("[INIT] Mode: CPU (float32)")
 
-# =========================================================
+
 # CHARGEMENT DU LLM
-# =========================================================
 
 # 1. Le Tokenizer : Convertit le texte en nombres
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
-# 2. Le Modèle : Le réseau de neurones génératif
+# 2. Le Modèle
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME,
-    torch_dtype=llm_dtype,
+    dtype=llm_dtype,
     device_map="auto", # Gestion automatique de la mémoire (VRAM/RAM)
 )
 
-# =========================================================
+
 # FONCTIONS UTILITAIRES LLM
-# =========================================================
 
 def call_llm(prompt: str) -> str:
     """
@@ -69,11 +69,10 @@ def call_llm(prompt: str) -> str:
     if hasattr(tokenizer, "apply_chat_template"):
         model_inputs = tokenizer.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pt")
     else:
-        # Fallback manuel si la fonction n'existe pas (anciennes versions)
+        # Fallback manuel si la fonction n'existe pas
         chat_text = f"System: Helper.\nUser:\n{prompt}\n\nAssistant:"
         model_inputs = tokenizer(chat_text, return_tensors="pt", truncation=True, max_length=4096)
 
-    # --- CORRECTION DU BUG ---
     # Si model_inputs est juste un Tensor, on le met dans un dictionnaire
     if isinstance(model_inputs, torch.Tensor):
         model_inputs = {"input_ids": model_inputs}
@@ -86,11 +85,11 @@ def call_llm(prompt: str) -> str:
         output_ids = model.generate(
             **model_inputs, 
             max_new_tokens=512, 
-            do_sample=False, # Déterministe (pas de créativité aléatoire)
+            do_sample=False, # Déterministe, pas de créativité aléatoire
             pad_token_id=tokenizer.eos_token_id
         )
 
-    # Décodage (Tokens -> Texte)
+    # Décodage (Tokens vers Texte)
     generated_ids = output_ids[0][model_inputs["input_ids"].shape[1]:]
     return tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
 
@@ -101,7 +100,7 @@ def call_llm_baseline(query: str) -> str:
     
     model_inputs = tokenizer.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pt")
     
-    # Correction bug ici aussi par sécurité
+    # Correction par sécurité
     if isinstance(model_inputs, torch.Tensor):
         model_inputs = {"input_ids": model_inputs}
         
@@ -122,13 +121,14 @@ def _fallback(query, info=""):
     return f"*** [RAG FAILED: {info}] Fallback to Baseline (Connaissances générales) ***\n\n{baseline}"
 
 
-# =========================================================
 # GESTION DES RESSOURCES (Index, Corpus, Modèles)
-# =========================================================
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.append("..")
+BASE_DIR = Path("..")
+
 PROC_DIR = BASE_DIR / "data" / "processed"
 INDEX_DIR = BASE_DIR / "data" / "index"
+
 
 def load_resources():
     print("--- Loading RAG Resources ---")
@@ -161,9 +161,9 @@ def load_resources():
     return df, index, embed_model, reranker, bm25
 
 
-# =========================================================
+
+
 # BRIQUES DE BASE (Retrieval Modules)
-# =========================================================
 
 def retrieve_faiss(query: str, df, index, embed_model, top_k=10):
     """Recherche Vectorielle (Dense Retrieval) via FAISS."""
@@ -205,7 +205,7 @@ def reciprocal_rank_fusion(list_a, list_b, k=60):
     
     def add_to_map(results_list):
         for rank, doc in enumerate(results_list):
-            key = doc['text'] # Clé de dédoublonnage
+            key = doc['text'] # Clé de dédoublage
             if key not in scores_map:
                 scores_map[key] = {"doc": doc, "score": 0.0}
             scores_map[key]["score"] += 1 / (k + rank + 1)
@@ -230,18 +230,53 @@ def rerank_contexts(query, contexts, reranker, top_k=5):
     return sorted(contexts, key=lambda x: x['score'], reverse=True)[:top_k]
 
 
-# =========================================================
-# PIPELINES RAG (Versions V1 à V4)
-# =========================================================
 
-# V1: SIMPLE RAG (Baseline)
+# FONCTION D'AFFICHAGE DES SOURCES
+
+def display_sources(contexts):
+    """
+    Affiche un bloc visuel avec les sources utilisées pour générer la réponse.
+    Critère d'acceptation : Nom fichier, ID Chunk, Score.
+    """
+    if not contexts:
+        return
+
+    print("\n" + "   " + "─"*50)
+    print("   📚 SOURCES UTILISÉES (Preuves)")
+    print("   " + "─"*50)
+    
+    for i, doc in enumerate(contexts):
+        # Récupération des métadonnées
+        source = doc.get('source', 'Document inconnu')
+        doc_id = doc.get('doc_id', '?')
+        score = doc.get('score', 0.0)
+        
+        # Petit extrait du texte pour le contexte (optionnel mais classe)
+        snippet = doc['text'][:85].replace("\n", " ") + "..."
+        
+        # Affichage formaté
+        # On met le score en gras ou en évidence visuelle simple
+        print(f"   {i+1}. 📄 {source} | Chunk #{doc_id}")
+        print(f"      🎯 Confiance : {score:.4f}")
+        print(f"      📝 Extrait : \"{snippet}\"")
+        print("   " + "-"*20)
+    print("\n")
+
+
+
+# PIPELINES RAG (Versions V1 à V4)
+
+# ====== V1: SIMPLE RAG (Baseline) ======
 def rag_v1(query, df, index, embed_model, top_k=5):
     docs = retrieve_faiss(query, df, index, embed_model, top_k)
+    display_sources(docs)
     if not docs or docs[0]['score'] < THRESHOLD_SIMPLE:
         return _fallback(query, "Low FAISS Score")
     return call_llm(build_prompt(query, docs))
 
-# V2: MULTI-QUERY (Expansion de requête)
+
+
+# ====== V2: MULTI-QUERY (Expansion de requête) ======
 def rag_v2(query, df, index, embed_model, top_k=5):
     print("   [V2] Generating variations...")
     variations = [query]
@@ -259,7 +294,12 @@ def rag_v2(query, df, index, embed_model, top_k=5):
     if not final_docs: return _fallback(query)
     return call_llm(build_prompt(query, final_docs[:top_k]))
 
-# V3: RERANKING (Filtrage Avancé)
+
+
+
+
+
+# ====== V3: RERANKING (Filtrage Avancé) ======
 def rag_v3(query, df, index, embed_model, reranker, top_k=5):
     variations = [query]
     
@@ -282,7 +322,10 @@ def rag_v3(query, df, index, embed_model, reranker, top_k=5):
         
     return call_llm(build_prompt(query, final_docs))
 
-# V4: HYBRID ULTIMATE (La Totale)
+
+
+
+# ====== V4: HYBRID ======
 def rag_v4_hybrid(query, df, index, embed_model, bm25, reranker, top_k=5):
     print("=== [V4] Pipeline: Multi-Query -> Hybrid (FAISS+BM25) -> RRF -> Reranking ===")
     
@@ -311,15 +354,16 @@ def rag_v4_hybrid(query, df, index, embed_model, bm25, reranker, top_k=5):
     
     print(f"   [V4] Meilleur Score Final: {final_docs[0]['score']:.2f}")
     
+    display_sources(final_docs)
+
     if final_docs[0]['score'] < THRESHOLD_RERANK:
          return _fallback(query, "Irrelevant Context")
-
+    
     return call_llm(build_prompt(query, final_docs))
 
 
-# =========================================================
-# MAIN (BOUCLE DÉMO)
-# =========================================================
+
+# DEMO with "For which population groups is assessment of total CVD risk recommended?"
 
 def main():
     df, index, embed_model, reranker, bm25 = load_resources()
@@ -345,16 +389,9 @@ def main():
         print("\n" + "-"*30 + " V1. SIMPLE (FAISS) " + "-"*30)
         print(rag_v1(query, df, index, embed_model))
 
-        print("\n" + "-"*30 + " V2. MULTI-QUERY " + "-"*30)
-        print(rag_v2(query, df, index, embed_model))
-        
-        print("\n" + "-"*30 + " V3. RERANKING " + "-"*30)
-        print(rag_v3(query, df, index, embed_model, reranker))
-
         print("\n" + "-"*30 + " V4. HYBRID ULTIMATE (BM25+FAISS+RERANK) " + "-"*30)
         print(rag_v4_hybrid(query, df, index, embed_model, bm25, reranker))
         
         print("\n" + "="*60)
 
-if __name__ == "__main__":
-    main()
+main()

@@ -1,4 +1,5 @@
 from pathlib import Path
+import sys
 
 import faiss
 import numpy as np
@@ -6,9 +7,18 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer
 
 # Project root directory
-BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.append("..") 
+
+# CONFIGURATION DES CHEMINS
+BASE_DIR = Path("..")
+
+# Dossier où se trouve le CSV (Données traitées)
 PROC_DIR = BASE_DIR / "data" / "processed"
+
+# Dossier où on va sauvegarder l'index
 INDEX_DIR = BASE_DIR / "data" / "index"
+
+# Création du dossier s'il n'existe pas
 INDEX_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -21,12 +31,12 @@ def main():
     texts = df["text"].astype(str).tolist()
     doc_ids = df["doc_id"].tolist()
 
-    # 1) Load sentence embedding model
+    # 1. Chargement du modèle de sentence embedding
     model_name = "sentence-transformers/all-MiniLM-L6-v2"
     print(f"Loaded embedding model: {model_name}")
     model = SentenceTransformer(model_name)
 
-    # 2) Encode all documents
+    # 2. Encoder tous les documents
     print("Start encoding documents...")
     embeddings = model.encode(
         texts,
@@ -37,13 +47,13 @@ def main():
     )
     print("Encoding finished, shape:", embeddings.shape)
 
-    # 3) Build FAISS index
+    # 3. Construction de l'index FAISS
     dim = embeddings.shape[1]
     index = faiss.IndexFlatIP(dim)
     index.add(embeddings)
     print("FAISS index built, number of vectors:", index.ntotal)
 
-    # 4) Save index, embeddings and document metadata
+    # 4. Sauvegarde de l'index, des embeddings et des métadonnées des documents
     faiss_path = INDEX_DIR / "corpus.index"
     faiss.write_index(index, str(faiss_path))
 
@@ -53,7 +63,7 @@ def main():
     meta_path = INDEX_DIR / "corpus_meta.csv"
     df.to_csv(meta_path, index=False, encoding="utf-8")
 
-    # Save embedding model name for later loading
+    # Sauvagardes du nom du modèle d'embedding pour pouvoir le charger plus tard
     model_name_path = INDEX_DIR / "embedding_model.txt"
     model_name_path.write_text(model_name, encoding="utf-8")
 
